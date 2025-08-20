@@ -1,0 +1,13 @@
+{
+  "サブバッテリー": "start_subbattery",
+  "バッテリー": "start_battery",
+  "走行充電": "start_drivecharge",
+  "換気扇・排気システム": "start_vent",
+  "室内収納・家具": "start_furniture",
+  "室内灯・LED": "start_led",
+  "トイレ": "start_toilet",
+  "FFヒーター": "start_ffheater",
+  "インバーター": "start_inverter",
+  "冷蔵庫": "start_refrigerator",
+  "水道ポンプ": "start_waterpump"
+}

@@ -1,0 +1,10 @@
+[33m9e8ce0c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m 関連ブログ表示機能とお問い合わせ案内を追加、シナリオファイルの更新
+[33m22a1f48[m 関連リンクを削除
+[33ma4abd44[m 関連リンクの表示を修正 - ブログと岡山サポートセンターのみ表示
+[33m31f22a6[m Add config.py with environment variables
+[33m75f15a0[m Add config.py with environment variables
+[33me2171bb[m Add temporary config.py with environment variables
+[33m22e578d[m Remove all config references and use environment variables
+[33m3a27b84[m Remove hardcoded API key from embeddings
+[33mad526b0[m Remove hardcoded API keys
+[33mf8dc4c7[m Remove invalid comments and fix config references

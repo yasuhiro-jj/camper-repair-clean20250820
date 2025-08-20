@@ -1,0 +1,920 @@
+[
+  {
+    "start_subbattery": {
+      "question": "サブバッテリー（補助バッテリー）に関するトラブルでお困りですか？\n（電装品が使えない・一部機器の電源が入らない等も含みます）",
+      "category": "サブバッテリー",
+      "is_start": true,
+      "is_end": false,
+      "next_nodes": ["subbattery_charge", "subbattery_other"],
+      "result": ""
+    },
+    "subbattery_charge": {
+      "question": "最近、サブバッテリーで使っている家電やポータブル機器の電源が入りにくい、または途中で止まることがありますか？",
+      "category": "サブバッテリー",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["subbattery_voltage", "subbattery_weak"],
+      "result": ""
+    },
+    "subbattery_voltage": {
+      "question": "サブバッテリーの電圧をテスター（例：SANWA CD771）やバッテリーチェッカー（例：CTEKバッテリーテスター）で測定できますか？",
+      "category": "サブバッテリー",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["subbattery_dead", "subbattery_connection"],
+      "result": ""
+    },
+    "subbattery_dead": {
+      "question": "",
+      "category": "サブバッテリー",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔋 サブバッテリーが完全放電・使用不可の可能性があります。\n\n【対処法】\n1. ブースターケーブル（おすすめ：エーモン バッテリー用ケーブル）で応急措置可能。\n2. ポータブルバッテリーチャージャー（例：CTEK MXS 5.0）での充電も有効です。\n3. 数年以上使っている場合は新品交換（例：Panasonic ブルーバッテリー caos）がおすすめです。\n\n【ワンポイント】\nバッテリーの寿命（3-5年が目安）や使用頻度を考慮し、早めの交換で安心です。"
+    },
+    "subbattery_connection": {
+      "question": "",
+      "category": "サブバッテリー",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔋 サブバッテリー端子/配線の接続不良が疑われます。\n\n【対処法】\n1. 端子の清掃にはワイヤーブラシ（例：エーモン 端子クリーナー）を使うと便利です。\n2. 端子・配線の締め付けや接触状態をしっかり確認しましょう。\n3. 汚れや腐食がひどい場合は交換も視野に入れてください。\n\n【ワンポイント】\nDIYが不安な場合や難しい場合は、整備工場や購入店へご依頼ください。"
+    },
+    "subbattery_weak": {
+      "question": "",
+      "category": "サブバッテリー",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔋 サブバッテリーの性能・容量が落ちている可能性があります。\n\n【対処法】\n1. バッテリーチャージャー（例：NOCO GENIUS1）で充電して様子をみましょう。\n2. 容量不足を感じる場合は大容量モデル（例：G&Yu SMF 125D31L）への交換がおすすめです。\n\n【ワンポイント】\nバッテリー液の点検（補充タイプの場合）や電圧確認もこまめに行うと安心です。"
+    },
+    "subbattery_other": {
+      "question": "サブバッテリーの具体的な症状を教えてください。",
+      "category": "サブバッテリー",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["subbattery_overheat", "subbattery_leak", "subbattery_aging"],
+      "result": ""
+    },
+    "subbattery_overheat": {
+      "question": "",
+      "category": "サブバッテリー",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔋 サブバッテリーの過熱が疑われます。\n\n【対処法】\n1. バッテリーの設置場所の通気性を確認。\n2. 過充電防止装置（例：Victron Energy チャージコントローラー）の動作確認。\n3. 充電器の設定や出力を確認。\n4. 異常な発熱の場合は即座に使用を停止し、専門店で点検。\n\n【ワンポイント】\nバッテリーの過熱は火災の原因となるため、早急な対処が必要です。"
+    },
+    "subbattery_leak": {
+      "question": "",
+      "category": "サブバッテリー",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔋 サブバッテリーからの液漏れが疑われます。\n\n【対処法】\n1. 液漏れの場合は絶対に触らない（硫酸による火傷の危険）。\n2. 換気を十分に行い、安全な場所に移動。\n3. 専門店での点検・交換を推奨。\n4. 液漏れしたバッテリーは廃棄処分。\n\n【ワンポイント】\n液漏れは重大な故障のサインです。安全第一で対処しましょう。"
+    },
+    "subbattery_aging": {
+      "question": "",
+      "category": "サブバッテリー",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔋 サブバッテリーの経年劣化が進んでいます。\n\n【対処法】\n1. バッテリーの使用年数を確認（3-5年が交換目安）。\n2. 新品バッテリーへの交換を検討。\n3. 定期的なメンテナンス（端子清掃、電圧確認）の実施。\n4. 使用環境の改善（温度管理、通気性確保）。\n\n【ワンポイント】\n予防的な交換でトラブルを未然に防げます。"
+    },
+    "subbattery_maintenance": {
+      "question": "サブバッテリーの定期メンテナンスについて知りたいですか？",
+      "category": "サブバッテリー",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["subbattery_cleaning", "subbattery_check"],
+      "result": ""
+    },
+    "subbattery_cleaning": {
+      "question": "",
+      "category": "サブバッテリー",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔋 サブバッテリーの清掃方法\n\n【清掃手順】\n1. 端子の清掃：ワイヤーブラシ（エーモン 端子クリーナー）で腐食除去\n2. 本体の清掃：中性洗剤で汚れを落とす\n3. 乾燥：完全に乾かしてから使用\n4. 端子保護：グリス（例：エーモン バッテリーグリス）を塗布\n\n【ワンポイント】\n定期的な清掃でバッテリーの寿命が延びます。"
+    },
+    "subbattery_check": {
+      "question": "",
+      "category": "サブバッテリー",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔋 サブバッテリーの点検項目\n\n【点検内容】\n1. 電圧測定：テスターで12.6V以上を確認\n2. 端子の締め付け：ゆるみがないか確認\n3. 液面確認：補充タイプの場合は液面チェック\n4. 外観確認：液漏れ、膨張、変形の有無\n\n【ワンポイント】\n月1回の点検で早期発見・対処が可能です。"
+    }
+  },
+  {
+    "start_battery": {
+      "question": "メインバッテリー（車両バッテリー）に関するトラブルでお困りですか？\n（エンジンがかからない、セルモーターが回らない、電装品が動作しないなども含みます）",
+      "category": "バッテリー",
+      "is_start": true,
+      "is_end": false,
+      "next_nodes": ["battery_engine", "battery_other"],
+      "result": ""
+    },
+    "battery_engine": {
+      "question": "エンジンがかからない、またはセルモーターが回らない症状がありますか？",
+      "category": "バッテリー",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["battery_dead", "battery_weak"],
+      "result": ""
+    },
+    "battery_dead": {
+      "question": "",
+      "category": "バッテリー",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔋 メインバッテリーが完全放電・使用不可の可能性があります。\n\n【対処法】\n1. ブースターケーブル（おすすめ：エーモン ブースターケーブル）で応急措置。\n2. ポータブルジャンプスターター（例：NOCO GB40）の使用。\n3. バッテリーチャージャー（例：CTEK MXS 5.0）での充電。\n4. 数年以上使っている場合は新品交換（例：Panasonic 車両バッテリー）。\n\n【ワンポイント】\n車両バッテリーの寿命は2-4年が目安です。早めの交換で安心です。"
+    },
+    "battery_weak": {
+      "question": "",
+      "category": "バッテリー",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔋 メインバッテリーの性能・容量が落ちています。\n\n【対処法】\n1. バッテリーチャージャーで充電して様子をみる。\n2. 電圧測定で12.6V以上を確認。\n3. 容量不足の場合は新品交換を検討。\n4. 充電システム（オルタネーター）の点検も重要。\n\n【ワンポイント】\n定期的な電圧確認で早期発見が可能です。"
+    },
+    "battery_other": {
+      "question": "メインバッテリーのその他の症状を教えてください。",
+      "category": "バッテリー",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["battery_leak", "battery_aging", "battery_maintenance"],
+      "result": ""
+    },
+    "battery_leak": {
+      "question": "",
+      "category": "バッテリー",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔋 メインバッテリーからの液漏れが疑われます。\n\n【対処法】\n1. 液漏れの場合は絶対に触らない（硫酸による火傷の危険）。\n2. エンジンルームの換気を十分に行う。\n3. 専門店での点検・交換を推奨。\n4. 液漏れしたバッテリーは廃棄処分。\n\n【ワンポイント】\n液漏れは車体の腐食の原因になるため早急な対処が必要です。"
+    },
+    "battery_aging": {
+      "question": "",
+      "category": "バッテリー",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔋 メインバッテリーの経年劣化が進んでいます。\n\n【対処法】\n1. バッテリーの使用年数を確認（2-4年が交換目安）。\n2. 新品バッテリーへの交換を検討。\n3. 定期的なメンテナンス（端子清掃、電圧確認）の実施。\n4. 充電システムの点検も併せて実施。\n\n【ワンポイント】\n予防的な交換でトラブルを未然に防げます。"
+    },
+    "battery_maintenance": {
+      "question": "",
+      "category": "バッテリー",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔋 メインバッテリーの定期メンテナンス方法\n\n【メンテナンス内容】\n1. 月1回の電圧測定（12.6V以上を確認）。\n2. 3ヶ月に1回の端子清掃。\n3. 6ヶ月に1回の液面確認（補充タイプの場合）。\n4. 年1回の充電システム点検。\n\n【ワンポイント】\n定期的なメンテナンスでバッテリーの寿命が延びます。"
+    },
+    "battery_charging": {
+      "question": "メインバッテリーの充電について知りたいですか？",
+      "category": "バッテリー",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["battery_charger", "battery_alternator"],
+      "result": ""
+    },
+    "battery_charger": {
+      "question": "",
+      "category": "バッテリー",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔋 メインバッテリーの充電方法\n\n【充電手順】\n1. バッテリーチャージャー（例：CTEK MXS 5.0）を使用。\n2. 充電前に端子の清掃を実施。\n3. 充電中は換気を十分に行う。\n4. 充電完了後は電圧確認（12.6V以上）。\n\n【ワンポイント】\n適切な充電でバッテリーの寿命が延びます。"
+    },
+    "battery_alternator": {
+      "question": "",
+      "category": "バッテリー",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔋 オルタネーター（充電システム）の点検\n\n【点検内容】\n1. オルタネーターの動作確認。\n2. ベルトの張り具合・摩耗確認。\n3. 充電電圧の測定（13.5-14.5V）。\n4. 配線の接続確認。\n\n【ワンポイント】\nオルタネーターの故障はバッテリーの早期劣化の原因になります。"
+    }
+  },
+  {
+    "start_drivecharge": {
+      "question": "走行充電（車の運転によるバッテリー充電）に関することでお困りですか？\n（サブバッテリーを走行中に充電したい、充電できているか不安なども含みます）",
+      "category": "走行充電",
+      "is_start": true,
+      "is_end": false,
+      "next_nodes": ["drivecharge_check", "drivecharge_other"],
+      "result": ""
+    },
+    "drivecharge_check": {
+      "question": "走行中、サブバッテリーの電圧や電流が上昇しているのを確認できますか？\n（バッテリーモニター／チェッカー例：RENOGY バッテリーメーター）",
+      "category": "走行充電",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["drivecharge_system", "drivecharge_weak"],
+      "result": ""
+    },
+    "drivecharge_system": {
+      "question": "走行充電用機器（走行充電器、昇圧機など）は設置されていますか？\n（例：エーモン 走行充電キット・RENOGY DC-DC充電器）",
+      "category": "走行充電",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["drivecharge_wiring", "drivecharge_dead"],
+      "result": ""
+    },
+    "drivecharge_wiring": {
+      "question": "配線・ヒューズ・端子類に断線やゆるみはありませんか？\n（目視点検や配線チェッカー例：エーモン 配線チェッカー）",
+      "category": "走行充電",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔋 走行充電の配線にトラブルがある可能性があります。\n\n【対処法】\n1. 配線のゆるみや断線をまず目視・手触りで確認。\n2. 配線チェッカーやテスター（例：SANWA MG100）で通電状況を調べましょう。\n3. ヒューズ（例：エーモン管ヒューズ）も切れていないか確認。\n4. 必要に応じて配線・ヒューズの交換または専門店で点検依頼。\n\n【ワンポイント】\nDIY作業時は「バッテリー端子外し」「エンジン停止」を徹底し安全に作業してください。"
+    },
+    "drivecharge_dead": {
+      "question": "",
+      "category": "走行充電",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔋 走行充電機器が故障・動作不良の可能性があります。\n\n【対処法】\n1. 走行充電器本体の故障の場合は新品交換（例：エーモン 走行充電キット、RENOGY DC-DC充電器）を検討。\n2. 設置・配線に不安がある場合は専門店での点検・修理依頼。\n3. 充電器の設定や仕様確認も重要です。\n\n【ワンポイント】\n走行充電器は車種・バッテリー容量に合わせた適切な製品選びが重要です。"
+    },
+    "drivecharge_weak": {
+      "question": "",
+      "category": "走行充電",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔋 走行充電の充電量が少ない・充電が遅い場合です。\n\n【対処法】\n1. 走行時間・距離を増やして充電時間を確保。\n2. 充電器の設定や出力確認（例：RENOGY DC-DC充電器の設定）。\n3. バッテリー容量と充電器の出力バランスを確認。\n4. 充電が追いつかない場合は大容量バッテリーへの交換も検討。\n\n【ワンポイント】\n短距離・短時間の使用が多い場合は、外部充電器の併用も効果的です。"
+    },
+    "drivecharge_other": {
+      "question": "",
+      "category": "走行充電",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔋 その他の走行充電関連トラブルです。\n\n【対処法】\n1. 複雑な充電システムや複数バッテリー構成の場合は専門店での点検推奨。\n2. 充電器のメーカーサポートや取扱説明書の確認。\n3. 充電システム全体の見直し・改善も検討。\n\n【ワンポイント】\n充電システムは安全に重要な部分なので、不安な場合は必ずプロに相談しましょう。"
+    }
+  },
+  {
+    "start_vent": {
+      "question": "換気扇・排気システム（キャンピングカーや住宅のファン、排気口）の作動や異音・吸排気不良で困っていませんか？\n（電源が入らない、ファンが回らない、異音、吸排気力低下、臭いがこもるなども含みます）",
+      "category": "換気扇・排気システム",
+      "is_start": true,
+      "is_end": false,
+      "next_nodes": ["vent_check", "vent_other"],
+      "result": ""
+    },
+    "vent_check": {
+      "question": "換気扇やファンはONで正常に回りますか？異音や振動、吸排気力の低下はありませんか？フィルターは定期的に掃除できていますか？",
+      "category": "換気扇・排気システム",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["vent_dead", "vent_filter"],
+      "result": ""
+    },
+    "vent_dead": {
+      "question": "",
+      "category": "換気扇・排気システム",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🌬 モーターや本体故障が疑われます。\n\n【対処法】\n1. モーター本体交換（おすすめ：Panasonic 換気扇用モーター、三菱 換気扇本体ユニット）。\n2. 基盤やスイッチも異常があれば交換。\n3. 異音・回転不良のまま使うと故障拡大の危険あり。DIY困難なら業者相談を。\n\n【ワンポイント】\n分解・取付は必ず電源OFFで行いましょう。"
+    },
+    "vent_filter": {
+      "question": "",
+      "category": "換気扇・排気システム",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🌬 フィルターの詰まりや汚れが原因です。\n\n【対処法】\n1. 換気扇フィルターを取り外して掃除、交換用フィルター（パナソニック 換気扇用フィルター、アイリスオーヤマ 換気扇フィルター）を定期交換。\n2. 頑固な汚れは中性洗剤やエアダスター（KURE エアダスターガン）でクリーニング。\n\n【ワンポイント】\nフィルターは2～3ヶ月に1回の掃除・半年に1回の交換がおすすめです。"
+    },
+    "vent_connection": {
+      "question": "",
+      "category": "換気扇・排気システム",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🌬 電源部・スイッチ・端子配線の接触不良の可能性です。\n\n【対処法】\n1. 端子やスイッチの清掃（KURE 5-56 接点復活剤）。\n2. 配線チェッカー（SANWA MG100）で断線の有無を確認。\n3. 配線のゆるみ・断線は増し締めまたは新品交換。\n\n【ワンポイント】\n通電点検は必ずプロ仕様の工具で。"
+    },
+    "vent_other": {
+      "question": "",
+      "category": "換気扇・排気システム",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🌬 その他の換気扇・排気系トラブルです。\n\n【対処法】\n1. 排気口やダクトの詰まり・異物入りも確認。\n2. DIY困難や大掛かりな修理は必ず専門業者へ相談しましょう。\n\n【ワンポイント】\n臭い・湿気・結露が続く場合は早めに点検しましょう。"
+    }
+  },
+  {
+    "start_furniture": {
+      "question": "室内収納や家具（棚・扉・ロック・引き出し等）の開閉や固定・外れ・ガタつきなどでお困りですか？\n（扉が開かない・閉まらない、ロック不良、棚のズレや外れなども含みます）",
+      "category": "室内収納・家具",
+      "is_start": true,
+      "is_end": false,
+      "next_nodes": ["furniture_check", "furniture_other"],
+      "result": ""
+    },
+    "furniture_check": {
+      "question": "棚や引き出し、ドアはスムーズに開閉・ロックできますか？異音やひっかかり、外れそうな部品はありませんか？（家具金具・蝶番・スライドレールなども点検を）",
+      "category": "室内収納・家具",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["furniture_lock", "furniture_wobble"],
+      "result": ""
+    },
+    "furniture_lock": {
+      "question": "ロック・鍵や留め具、ストッパー部品は確実に固定できますか？鍵穴やラッチの固さやズレはありませんか？（おすすめ：カーメイト ロック部品・ikea家具ストッパー）",
+      "category": "室内収納・家具",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["furniture_dead", "furniture_loose"],
+      "result": ""
+    },
+    "furniture_dead": {
+      "question": "",
+      "category": "室内収納・家具",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🗄 ロックや鍵・金具の重大な不良があります。\n\n【対処法】\n1. ロック部品・蝶番・スライドレールの交換（カーメイト ロック部品、ikea蝶番など）。\n2. 固着部は潤滑剤（KURE 5-56）を使います。\n3. 引き出しや扉が外れた場合はストッパー・キャッチ追加。\n\n【ワンポイント】\n走行中の荷崩れ防止にもストッパー・キャッチ（ikea ストップパーツ等）の使用が有効です。"
+    },
+    "furniture_loose": {
+      "question": "",
+      "category": "室内収納・家具",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🗄 扉・棚・引き出しのガタつき・ズレ等の軽度不良です。\n\n【対処法】\n1. ネジの増締め・ヒンジ部の調整。\n2. ガタつきが続く場合は家具補修用金具（ikea 補修金具・小林製作所 棚用補強プレートなど）を追加。\n\n【ワンポイント】\n収納物の片寄りや重量もガタつきの原因になるため定期的な配置見直しも効果的です。"
+    },
+    "furniture_wobble": {
+      "question": "",
+      "category": "室内収納・家具",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🗄 棚・扉・家具全体の揺れや外れ、傾きの症状です。\n\n【対処法】\n1. 棚受け金具・L型補強金具（小林製作所 L型棚受け）で補強。\n2. 床面や壁面への追加固定も検討。\n\n【ワンポイント】\n重量物は下部に配置し、走行中の揺れ対策も重要です。"
+    },
+    "furniture_other": {
+      "question": "",
+      "category": "室内収納・家具",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🗄 その他の家具・収納系トラブルです。\n\n【対処法】\n1. DIYが困難な場合は家具メーカーや内装業者相談。\n2. 棚板や天板の経年劣化は新品部品交換がおすすめ（ikea 交換棚板等）。\n\n【ワンポイント】\nキャンピングカーの揺れ・振動対策には補強・固定の見直しが効果的です。"
+    }
+  },
+  {
+    "start_led": {
+      "question": "室内灯やLED照明（全室照明・ON/OFF・調光・球切れ）のトラブルでお困りですか？\n（点灯しない、ちらつき、暗い、調光できないなども含みます）",
+      "category": "室内灯・LED",
+      "is_start": true,
+      "is_end": false,
+      "next_nodes": ["led_check", "led_other"],
+      "result": ""
+    },
+    "led_check": {
+      "question": "全ての照明は問題なくON/OFFや調光ができますか？球切れや一部がつかない、チラつき・暗い場所はありませんか？（交換用LED例：アイリスオーヤマ LED電球、パナソニック LED電球など）",
+      "category": "室内灯・LED",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["led_dead", "led_connection"],
+      "result": ""
+    },
+    "led_dead": {
+      "question": "",
+      "category": "室内灯・LED",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "💡 電球・LED本体の寿命や故障です。\n\n【対処法】\n1. 切れているLEDや電球を交換（おすすめ：アイリスオーヤマLEDシーリング、パナソニック 全方向型LED等）。\n2. ランプユニット自体の不良なら本体ごと交換。\n\n【ワンポイント】\nLEDは消費電力が低く、長寿命なものを選ぶと経済的です。"
+    },
+    "led_connection": {
+      "question": "",
+      "category": "室内灯・LED",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "💡 配線やスイッチ、端子・コネククトの接触不良の可能性です。\n\n【対処法】\n1. 端子やコネクタ清掃（KURE 5-56 接点クリーナー等）。\n2. スイッチやリモコン故障時は新品への交換。\n3. 配線不良時は配線チェッカーやテスター（SANWA MG100）で断線箇所を特定。\n\n【ワンポイント】\n配線作業は必ずバッテリーOFFで行いましょう。"
+    },
+    "led_weak": {
+      "question": "",
+      "category": "室内灯・LED",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "💡 光量が弱い・ちらつきや暗さが気になる場合です。\n\n【対処法】\n1. LEDのスペック見直し（高ルーメンの製品例：アイリスオーヤマ 明るいLEDランプ）。\n2. カバーの汚れはマイクロファイバークロス等でふき取り。\n3. 点灯不良が頻発する場合は本体も新品に交換。\n\n【ワンポイント】\n調光式照明は適合リモコン・スイッチ以外では誤作動も発生しやすいのでご注意を。"
+    },
+    "led_other": {
+      "question": "",
+      "category": "室内灯・LED",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "💡 その他のLED・室内照明トラブルです。\n\n【対処法】\n1. 電源電圧・バッテリー容量不足もチェック。\n2. DIY困難や大掛かりな配線作業時は専門業者相談もおすすめです。\n\n【ワンポイント】\n全室LED化や省エネ照明で快適性・バッテリー持ちも向上します。"
+    }
+  },
+  {
+    "start_toilet": {
+      "question": "トイレ（水洗・排水・給水システム）に関するトラブルでお困りですか？\n（水が流れない、排水が詰まる、給水できない、臭いがするなども含みます）",
+      "category": "トイレ",
+      "is_start": true,
+      "is_end": false,
+      "next_nodes": ["toilet_flush", "toilet_other"],
+      "result": ""
+    },
+    "toilet_flush": {
+      "question": "トイレの水洗機能は正常に動作しますか？水が流れない、水圧が弱い、または水が止まらないなどの症状はありませんか？",
+      "category": "トイレ",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["toilet_water_supply", "toilet_drain"],
+      "result": ""
+    },
+    "toilet_water_supply": {
+      "question": "トイレの給水システムに問題がありますか？水が出ない、水圧が弱い、または水が漏れるなどの症状はありますか？",
+      "category": "トイレ",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["toilet_pump", "toilet_valve"],
+      "result": ""
+    },
+    "toilet_pump": {
+      "question": "",
+      "category": "トイレ",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🚽 トイレ給水ポンプの故障が疑われます。\n\n【対処法】\n1. ポンプ本体の交換（おすすめ：Jabsco 給水ポンプ、Shurflo ポンプ）。\n2. ポンプの配線やヒューズの確認。\n3. 水タンクの水位確認。\n4. ポンプの動作音や振動の確認。\n\n【ワンポイント】\n給水ポンプは定期的なメンテナンスで寿命が延びます。"
+    },
+    "toilet_valve": {
+      "question": "",
+      "category": "トイレ",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🚽 トイレ給水バルブの故障が疑われます。\n\n【対処法】\n1. バルブの清掃・交換（おすすめ：Dometic トイレバルブ、Thetford バルブ）。\n2. バルブの開閉動作確認。\n3. 配管の詰まり確認。\n4. 水圧調整の確認。\n\n【ワンポイント】\nバルブの故障は水漏れの原因になるため早めの対処が重要です。"
+    },
+    "toilet_drain": {
+      "question": "トイレの排水システムに問題がありますか？排水が詰まる、排水が遅い、または逆流するなどの症状はありますか？",
+      "category": "トイレ",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["toilet_clog", "toilet_tank"],
+      "result": ""
+    },
+    "toilet_clog": {
+      "question": "",
+      "category": "トイレ",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🚽 トイレ排水管の詰まりが疑われます。\n\n【対処法】\n1. 排水管の清掃（おすすめ：KURE 5-56 パイプクリーナー）。\n2. 詰まり除去剤の使用（例：サンポール パイプクリーナー）。\n3. 排水管の取り外し・清掃。\n4. 異物の除去確認。\n\n【ワンポイント】\n定期的な清掃で詰まりを予防できます。"
+    },
+    "toilet_tank": {
+      "question": "",
+      "category": "トイレ",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🚽 トイレタンクの故障が疑われます。\n\n【対処法】\n1. タンクの清掃・消毒（おすすめ：トイレタンククリーナー）。\n2. タンクの排水バルブ確認。\n3. タンクの水位調整。\n4. 必要に応じてタンク交換。\n\n【ワンポイント】\nタンクの定期的な清掃で臭いや汚れを防げます。"
+    },
+    "toilet_other": {
+      "question": "トイレのその他の症状を教えてください。",
+      "category": "トイレ",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["toilet_smell", "toilet_leak", "toilet_maintenance"],
+      "result": ""
+    },
+    "toilet_smell": {
+      "question": "",
+      "category": "トイレ",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🚽 トイレの臭いが気になる場合です。\n\n【対処法】\n1. トイレの徹底清掃（おすすめ：トイレクリーナー、消臭剤）。\n2. 換気扇の動作確認。\n3. 排水管の清掃。\n4. 消臭剤の使用（例：トイレ消臭剤）。\n\n【ワンポイント】\n定期的な清掃と換気で臭いを防げます。"
+    },
+    "toilet_leak": {
+      "question": "",
+      "category": "トイレ",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🚽 トイレからの水漏れが疑われます。\n\n【対処法】\n1. 漏れ箇所の特定（配管、バルブ、タンクなど）。\n2. パッキンやシールの交換。\n3. 配管の締め付け確認。\n4. 必要に応じて部品交換。\n\n【ワンポイント】\n水漏れは床の腐食の原因になるため早急な対処が必要です。"
+    },
+    "toilet_maintenance": {
+      "question": "",
+      "category": "トイレ",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🚽 トイレの定期メンテナンス方法\n\n【メンテナンス内容】\n1. 週1回のトイレ清掃。\n2. 月1回の排水管清掃。\n3. 3ヶ月に1回のタンク清掃。\n4. 年1回の配管点検。\n\n【ワンポイント】\n定期的なメンテナンスでトイレの寿命が延びます。"
+    }
+  },
+  {
+    "start_ffheater": {
+      "question": "FFヒーター（FF式暖房機）に関するトラブルでお困りですか？\n（暖房が効かない、電源が入らない、異音がする、ガスが使えないなども含みます）",
+      "category": "FFヒーター",
+      "is_start": true,
+      "is_end": false,
+      "next_nodes": ["ffheater_power", "ffheater_other"],
+      "result": ""
+    },
+    "ffheater_power": {
+      "question": "FFヒーターの電源は正常に入りますか？電源が入らない、または途中で止まるなどの症状はありませんか？",
+      "category": "FFヒーター",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["ffheater_gas", "ffheater_electric"],
+      "result": ""
+    },
+    "ffheater_gas": {
+      "question": "ガス供給に問題がありますか？ガスが使えない、ガス漏れの臭いがする、またはガス圧が弱いなどの症状はありますか？",
+      "category": "FFヒーター",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["ffheater_gas_leak", "ffheater_gas_pressure"],
+      "result": ""
+    },
+    "ffheater_gas_leak": {
+      "question": "",
+      "category": "FFヒーター",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔥 FFヒーターのガス漏れが疑われます。\n\n【対処法】\n1. ガス漏れの場合は即座に使用を停止。\n2. 換気を十分に行い、火気厳禁。\n3. ガス配管の点検（おすすめ：ガス漏れ検知器）。\n4. 専門店での点検・修理を推奨。\n\n【ワンポイント】\nガス漏れは火災の原因となるため、安全第一で対処しましょう。"
+    },
+    "ffheater_gas_pressure": {
+      "question": "",
+      "category": "FFヒーター",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔥 FFヒーターのガス圧不足が疑われます。\n\n【対処法】\n1. ガスボンベの残量確認。\n2. ガス配管の詰まり確認。\n3. ガス圧調整器の点検。\n4. ガスボンベの交換。\n\n【ワンポイント】\nガス圧不足は不完全燃焼の原因になります。"
+    },
+    "ffheater_electric": {
+      "question": "電気系統に問題がありますか？配線の断線、ヒューズの切断、または電圧不足などの症状はありますか？",
+      "category": "FFヒーター",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["ffheater_wiring", "ffheater_voltage"],
+      "result": ""
+    },
+    "ffheater_wiring": {
+      "question": "",
+      "category": "FFヒーター",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔥 FFヒーターの配線不良が疑われます。\n\n【対処法】\n1. 配線の断線・ゆるみ確認。\n2. ヒューズの確認・交換。\n3. 配線チェッカー（例：SANWA MG100）で通電確認。\n4. 必要に応じて配線交換。\n\n【ワンポイント】\n配線作業は必ず電源OFFで行いましょう。"
+    },
+    "ffheater_voltage": {
+      "question": "",
+      "category": "FFヒーター",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔥 FFヒーターの電圧不足が疑われます。\n\n【対処法】\n1. バッテリー電圧の確認（12.6V以上）。\n2. 電圧降下の原因特定。\n3. 配線の太さ・長さの見直し。\n4. 必要に応じて電源強化。\n\n【ワンポイント】\n電圧不足は機器の故障の原因になります。"
+    },
+    "ffheater_other": {
+      "question": "FFヒーターのその他の症状を教えてください。",
+      "category": "FFヒーター",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["ffheater_noise", "ffheater_heat", "ffheater_maintenance"],
+      "result": ""
+    },
+    "ffheater_noise": {
+      "question": "",
+      "category": "FFヒーター",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔥 FFヒーターから異音がする場合です。\n\n【対処法】\n1. ファンの清掃・交換。\n2. 燃焼室の清掃。\n3. モーターの点検・交換。\n4. 振動の原因特定。\n\n【ワンポイント】\n異音は故障の前兆の可能性があります。"
+    },
+    "ffheater_heat": {
+      "question": "",
+      "category": "FFヒーター",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔥 FFヒーターの暖房効果が弱い場合です。\n\n【対処法】\n1. フィルターの清掃・交換。\n2. 燃焼室の清掃。\n3. 温風ダクトの詰まり確認。\n4. 設定温度の確認。\n\n【ワンポイント】\n定期的な清掃で暖房効果が向上します。"
+    },
+    "ffheater_maintenance": {
+      "question": "",
+      "category": "FFヒーター",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔥 FFヒーターの定期メンテナンス方法\n\n【メンテナンス内容】\n1. 月1回のフィルター清掃。\n2. 3ヶ月に1回の燃焼室清掃。\n3. 6ヶ月に1回のファン清掃。\n4. 年1回の専門点検。\n\n【ワンポイント】\n定期的なメンテナンスで安全・効率的な運転が可能です。"
+    }
+  },
+  {
+    "start_inverter": {
+      "question": "インバーター（DC-AC変換器）に関するトラブルでお困りですか？\n（AC電源が使えない、電源が入らない、異音がする、過負荷で止まるなども含みます）",
+      "category": "インバーター",
+      "is_start": true,
+      "is_end": false,
+      "next_nodes": ["inverter_power", "inverter_other"],
+      "result": ""
+    },
+    "inverter_power": {
+      "question": "インバーターの電源は正常に入りますか？電源が入らない、または途中で止まるなどの症状はありませんか？",
+      "category": "インバーター",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["inverter_input", "inverter_output"],
+      "result": ""
+    },
+    "inverter_input": {
+      "question": "入力側（DC電源）に問題がありますか？バッテリー電圧が低い、配線の断線、またはヒューズの切断などの症状はありますか？",
+      "category": "インバーター",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["inverter_voltage", "inverter_wiring"],
+      "result": ""
+    },
+    "inverter_voltage": {
+      "question": "",
+      "category": "インバーター",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "⚡ インバーターの入力電圧不足が疑われます。\n\n【対処法】\n1. バッテリー電圧の確認（12.6V以上）。\n2. バッテリーの充電実施。\n3. 配線の太さ・長さの見直し。\n4. 必要に応じて大容量バッテリーへの交換。\n\n【ワンポイント】\n電圧不足はインバーターの故障の原因になります。"
+    },
+    "inverter_wiring": {
+      "question": "",
+      "category": "インバーター",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "⚡ インバーターの配線不良が疑われます。\n\n【対処法】\n1. 配線の断線・ゆるみ確認。\n2. ヒューズの確認・交換。\n3. 配線チェッカー（例：SANWA MG100）で通電確認。\n4. 必要に応じて配線交換。\n\n【ワンポイント】\n配線作業は必ず電源OFFで行いましょう。"
+    },
+    "inverter_output": {
+      "question": "出力側（AC電源）に問題がありますか？AC電源が使えない、電圧が不安定、または過負荷で止まるなどの症状はありますか？",
+      "category": "インバーター",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["inverter_overload", "inverter_voltage_unstable"],
+      "result": ""
+    },
+    "inverter_overload": {
+      "question": "",
+      "category": "インバーター",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "⚡ インバーターの過負荷が疑われます。\n\n【対処法】\n1. 接続機器の消費電力確認。\n2. 同時使用機器の見直し。\n3. 大容量インバーターへの交換検討。\n4. 使用機器の優先順位付け。\n\n【ワンポイント】\n過負荷はインバーターの寿命を縮めます。"
+    },
+    "inverter_voltage_unstable": {
+      "question": "",
+      "category": "インバーター",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "⚡ インバーターの出力電圧が不安定です。\n\n【対処法】\n1. インバーター本体の故障確認。\n2. 接続機器の異常確認。\n3. 配線の接触不良確認。\n4. 必要に応じてインバーター交換。\n\n【ワンポイント】\n不安定な電圧は接続機器の故障の原因になります。"
+    },
+    "inverter_other": {
+      "question": "インバーターのその他の症状を教えてください。",
+      "category": "インバーター",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["inverter_noise", "inverter_heat", "inverter_maintenance"],
+      "result": ""
+    },
+    "inverter_noise": {
+      "question": "",
+      "category": "インバーター",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "⚡ インバーターから異音がする場合です。\n\n【対処法】\n1. ファンの清掃・交換。\n2. 内部部品の点検・交換。\n3. 振動の原因特定。\n4. 必要に応じてインバーター交換。\n\n【ワンポイント】\n異音は故障の前兆の可能性があります。"
+    },
+    "inverter_heat": {
+      "question": "",
+      "category": "インバーター",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "⚡ インバーターが過熱している場合です。\n\n【対処法】\n1. 設置場所の通気性確認。\n2. ファンの動作確認。\n3. 過負荷の確認。\n4. 必要に応じて冷却ファン追加。\n\n【ワンポイント】\n過熱はインバーターの故障の原因になります。"
+    },
+    "inverter_maintenance": {
+      "question": "",
+      "category": "インバーター",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "⚡ インバーターの定期メンテナンス方法\n\n【メンテナンス内容】\n1. 月1回の外観点検。\n2. 3ヶ月に1回のファン清掃。\n3. 6ヶ月に1回の配線点検。\n4. 年1回の動作確認。\n\n【ワンポイント】\n定期的なメンテナンスでインバーターの寿命が延びます。"
+    }
+  },
+  {
+    "start_refrigerator": {
+      "question": "冷蔵庫に関するトラブルでお困りですか？\n（冷えない、電源が入らない、異音がする、霜がつくなども含みます）",
+      "category": "冷蔵庫",
+      "is_start": true,
+      "is_end": false,
+      "next_nodes": ["refrigerator_power", "refrigerator_other"],
+      "result": ""
+    },
+    "refrigerator_power": {
+      "question": "冷蔵庫の電源は正常に入りますか？電源が入らない、または途中で止まるなどの症状はありませんか？",
+      "category": "冷蔵庫",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["refrigerator_electric", "refrigerator_gas"],
+      "result": ""
+    },
+    "refrigerator_electric": {
+      "question": "電気冷蔵庫の場合、電源供給に問題がありますか？配線の断線、ヒューズの切断、または電圧不足などの症状はありますか？",
+      "category": "冷蔵庫",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["refrigerator_wiring", "refrigerator_voltage"],
+      "result": ""
+    },
+    "refrigerator_wiring": {
+      "question": "",
+      "category": "冷蔵庫",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "❄️ 冷蔵庫の配線不良が疑われます。\n\n【対処法】\n1. 配線の断線・ゆるみ確認。\n2. ヒューズの確認・交換。\n3. 配線チェッカー（例：SANWA MG100）で通電確認。\n4. 必要に応じて配線交換。\n\n【ワンポイント】\n配線作業は必ず電源OFFで行いましょう。"
+    },
+    "refrigerator_voltage": {
+      "question": "",
+      "category": "冷蔵庫",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "❄️ 冷蔵庫の電圧不足が疑われます。\n\n【対処法】\n1. バッテリー電圧の確認（12.6V以上）。\n2. バッテリーの充電実施。\n3. 配線の太さ・長さの見直し。\n4. 必要に応じて電源強化。\n\n【ワンポイント】\n電圧不足は冷蔵庫の故障の原因になります。"
+    },
+    "refrigerator_gas": {
+      "question": "ガス冷蔵庫の場合、ガス供給に問題がありますか？ガスが使えない、ガス漏れの臭いがする、またはガス圧が弱いなどの症状はありますか？",
+      "category": "冷蔵庫",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["refrigerator_gas_leak", "refrigerator_gas_pressure"],
+      "result": ""
+    },
+    "refrigerator_gas_leak": {
+      "question": "",
+      "category": "冷蔵庫",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "❄️ ガス冷蔵庫のガス漏れが疑われます。\n\n【対処法】\n1. ガス漏れの場合は即座に使用を停止。\n2. 換気を十分に行い、火気厳禁。\n3. ガス配管の点検（おすすめ：ガス漏れ検知器）。\n4. 専門店での点検・修理を推奨。\n\n【ワンポイント】\nガス漏れは火災の原因となるため、安全第一で対処しましょう。"
+    },
+    "refrigerator_gas_pressure": {
+      "question": "",
+      "category": "冷蔵庫",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "❄️ ガス冷蔵庫のガス圧不足が疑われます。\n\n【対処法】\n1. ガスボンベの残量確認。\n2. ガス配管の詰まり確認。\n3. ガス圧調整器の点検。\n4. ガスボンベの交換。\n\n【ワンポイント】\nガス圧不足は冷却効果の低下の原因になります。"
+    },
+    "refrigerator_other": {
+      "question": "冷蔵庫のその他の症状を教えてください。",
+      "category": "冷蔵庫",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["refrigerator_cooling", "refrigerator_noise", "refrigerator_maintenance"],
+      "result": ""
+    },
+    "refrigerator_cooling": {
+      "question": "冷蔵庫の冷却効果に問題がありますか？冷えない、温度が不安定、または霜がつくなどの症状はありますか？",
+      "category": "冷蔵庫",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["refrigerator_compressor", "refrigerator_thermostat"],
+      "result": ""
+    },
+    "refrigerator_compressor": {
+      "question": "",
+      "category": "冷蔵庫",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "❄️ 冷蔵庫のコンプレッサー故障が疑われます。\n\n【対処法】\n1. コンプレッサーの動作音確認。\n2. コンプレッサーの交換。\n3. 冷媒の漏れ確認。\n4. 専門店での点検・修理を推奨。\n\n【ワンポイント】\nコンプレッサーの故障は冷蔵庫の心臓部の問題です。"
+    },
+    "refrigerator_thermostat": {
+      "question": "",
+      "category": "冷蔵庫",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "❄️ 冷蔵庫のサーモスタット故障が疑われます。\n\n【対処法】\n1. サーモスタットの設定確認。\n2. サーモスタットの交換。\n3. 温度センサーの点検。\n4. 必要に応じて専門店で修理。\n\n【ワンポイント】\nサーモスタットは温度制御の要です。"
+    },
+    "refrigerator_noise": {
+      "question": "",
+      "category": "冷蔵庫",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "❄️ 冷蔵庫から異音がする場合です。\n\n【対処法】\n1. ファンの清掃・交換。\n2. コンプレッサーの点検。\n3. 振動の原因特定。\n4. 必要に応じて部品交換。\n\n【ワンポイント】\n異音は故障の前兆の可能性があります。"
+    },
+    "refrigerator_maintenance": {
+      "question": "",
+      "category": "冷蔵庫",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "❄️ 冷蔵庫の定期メンテナンス方法\n\n【メンテナンス内容】\n1. 月1回の内部清掃。\n2. 3ヶ月に1回のファン清掃。\n3. 6ヶ月に1回のコンプレッサー点検。\n4. 年1回の専門点検。\n\n【ワンポイント】\n定期的なメンテナンスで冷蔵庫の寿命が延びます。"
+    }
+  },
+  {
+    "start_waterpump": {
+      "question": "水道ポンプに関するトラブルでお困りですか？\n（水が出ない、水圧が弱い、異音がする、ポンプが動かないなども含みます）",
+      "category": "水道ポンプ",
+      "is_start": true,
+      "is_end": false,
+      "next_nodes": ["waterpump_power", "waterpump_other"],
+      "result": ""
+    },
+    "waterpump_power": {
+      "question": "水道ポンプの電源は正常に入りますか？電源が入らない、または途中で止まるなどの症状はありませんか？",
+      "category": "水道ポンプ",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["waterpump_electric", "waterpump_voltage"],
+      "result": ""
+    },
+    "waterpump_electric": {
+      "question": "電気系統に問題がありますか？配線の断線、ヒューズの切断、または電圧不足などの症状はありますか？",
+      "category": "水道ポンプ",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["waterpump_wiring", "waterpump_fuse"],
+      "result": ""
+    },
+    "waterpump_wiring": {
+      "question": "",
+      "category": "水道ポンプ",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "💧 水道ポンプの配線不良が疑われます。\n\n【対処法】\n1. 配線の断線・ゆるみ確認。\n2. ヒューズの確認・交換。\n3. 配線チェッカー（例：SANWA MG100）で通電確認。\n4. 必要に応じて配線交換。\n\n【ワンポイント】\n配線作業は必ず電源OFFで行いましょう。"
+    },
+    "waterpump_fuse": {
+      "question": "",
+      "category": "水道ポンプ",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "💧 水道ポンプのヒューズ切断が疑われます。\n\n【対処法】\n1. ヒューズの確認・交換（おすすめ：エーモン 管ヒューズ）。\n2. ヒューズが切れる原因の特定。\n3. 過負荷や短絡の確認。\n4. 必要に応じて配線点検。\n\n【ワンポイント】\nヒューズが頻繁に切れる場合は根本的な原因を特定しましょう。"
+    },
+    "waterpump_voltage": {
+      "question": "",
+      "category": "水道ポンプ",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "💧 水道ポンプの電圧不足が疑われます。\n\n【対処法】\n1. バッテリー電圧の確認（12.6V以上）。\n2. バッテリーの充電実施。\n3. 配線の太さ・長さの見直し。\n4. 必要に応じて電源強化。\n\n【ワンポイント】\n電圧不足はポンプの故障の原因になります。"
+    },
+    "waterpump_other": {
+      "question": "水道ポンプのその他の症状を教えてください。",
+      "category": "水道ポンプ",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["waterpump_water", "waterpump_noise", "waterpump_maintenance"],
+      "result": ""
+    },
+    "waterpump_water": {
+      "question": "水の供給に問題がありますか？水が出ない、水圧が弱い、または水が漏れるなどの症状はありますか？",
+      "category": "水道ポンプ",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["waterpump_tank", "waterpump_pressure"],
+      "result": ""
+    },
+    "waterpump_tank": {
+      "question": "",
+      "category": "水道ポンプ",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "💧 水タンクの問題が疑われます。\n\n【対処法】\n1. 水タンクの水位確認。\n2. 水タンクの清掃・消毒。\n3. 給水口の詰まり確認。\n4. 水タンクの配管確認。\n\n【ワンポイント】\n定期的な水タンクの清掃で水質を保ちましょう。"
+    },
+    "waterpump_pressure": {
+      "question": "",
+      "category": "水道ポンプ",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "💧 水道ポンプの水圧調整が必要です。\n\n【対処法】\n1. ポンプの圧力調整（おすすめ：Shurflo 圧力調整器）。\n2. 配管の詰まり確認。\n3. フィルターの清掃・交換。\n4. ポンプの動作確認。\n\n【ワンポイント】\n適切な水圧設定でポンプの寿命が延びます。"
+    },
+    "waterpump_noise": {
+      "question": "",
+      "category": "水道ポンプ",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "💧 水道ポンプから異音がする場合です。\n\n【対処法】\n1. ポンプ内部の清掃。\n2. ベアリングの点検・交換。\n3. 振動の原因特定。\n4. 必要に応じてポンプ交換。\n\n【ワンポイント】\n異音は故障の前兆の可能性があります。"
+    },
+    "waterpump_maintenance": {
+      "question": "",
+      "category": "水道ポンプ",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "💧 水道ポンプの定期メンテナンス方法\n\n【メンテナンス内容】\n1. 月1回の動作確認。\n2. 3ヶ月に1回の内部清掃。\n3. 6ヶ月に1回のフィルター交換。\n4. 年1回の専門点検。\n\n【ワンポイント】\n定期的なメンテナンスでポンプの寿命が延びます。"
+    }
+  }
+] 

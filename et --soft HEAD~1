@@ -1,0 +1,5 @@
+[33m22a1f48[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m 関連リンクを削除
+[33ma4abd44[m 関連リンクの表示を修正 - ブログと岡山サポートセンターのみ表示
+[33m31f22a6[m Add config.py with environment variables
+[33m75f15a0[m Add config.py with environment variables
+[33me2171bb[m Add temporary config.py with environment variables

@@ -1,0 +1,1127 @@
+[
+  {
+    "start_subbattery": {
+    "question": "サブバッテリー（補助バッテリー）に関するトラブルでお困りですか？\n（電装品が使えない・一部機器の電源が入らない等も含みます）",
+    "category": "サブバッテリー",
+    "is_start": true,
+    "is_end": false,
+    "next_nodes": ["subbattery_charge", "subbattery_other"],
+    "result": ""
+  },
+  "subbattery_charge": {
+    "question": "最近、サブバッテリーで使っている家電やポータブル機器の電源が入りにくい、または途中で止まることがありますか？",
+    "category": "サブバッテリー",
+    "is_start": false,
+    "is_end": false,
+    "next_nodes": ["subbattery_voltage", "subbattery_weak"],
+    "result": ""
+  },
+  "subbattery_voltage": {
+    "question": "サブバッテリーの電圧をテスター（例：SANWA CD771）やバッテリーチェッカー（例：CTEKバッテリーテスター）で測定できますか？",
+    "category": "サブバッテリー",
+    "is_start": false,
+    "is_end": false,
+    "next_nodes": ["subbattery_dead", "subbattery_connection"],
+    "result": ""
+  },
+  "subbattery_dead": {
+    "question": "",
+    "category": "サブバッテリー",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🔋 サブバッテリーが完全放電・使用不可の可能性があります。\n\n【対処法】\n1. ブースターケーブル（おすすめ：エーモン バッテリー用ケーブル）で応急措置可能。\n2. ポータブルバッテリーチャージャー（例：CTEK MXS 5.0）での充電も有効です。\n3. 数年以上使っている場合は新品交換（例：Panasonic ブルーバッテリー caos）がおすすめです。\n\n【ワンポイント】\nバッテリーの寿命（3-5年が目安）や使用頻度を考慮し、早めの交換で安心です。"
+  },
+  "subbattery_connection": {
+    "question": "",
+    "category": "サブバッテリー",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🔋 サブバッテリー端子/配線の接続不良が疑われます。\n\n【対処法】\n1. 端子の清掃にはワイヤーブラシ（例：エーモン 端子クリーナー）を使うと便利です。\n2. 端子・配線の締め付けや接触状態をしっかり確認しましょう。\n3. 汚れや腐食がひどい場合は交換も視野に入れてください。\n\n【ワンポイント】\nDIYが不安な場合や難しい場合は、整備工場や購入店へご依頼ください。"
+  },
+  "subbattery_weak": {
+    "question": "",
+    "category": "サブバッテリー",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🔋 サブバッテリーの性能・容量が落ちている可能性があります。\n\n【対処法】\n1. バッテリーチャージャー（例：NOCO GENIUS1）で充電して様子をみましょう。\n2. 容量不足を感じる場合は大容量モデル（例：G&Yu SMF 125D31L）への交換がおすすめです。\n\n【ワンポイント】\nバッテリー液の点検（補充タイプの場合）や電圧確認もこまめに行うと安心です。"
+  },
+  "subbattery_other": {
+    "question": "",
+    "category": "サブバッテリー",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🔋 その他の原因によるサブバッテリートラブルです。\n\n【対処法】\n1. 過度な電力消費（電子レンジ・エアコン等）の使用状況を見直してください。\n2. 配線やヒューズ異常も考えられるため、ヒューズ（例：エーモン ヒューズセット）の確認もおすすめです。\n3. よく分からない、蓄電池や充電システムに異常がある場合は専門業者へ相談を。\n\n【ワンポイント】\n複雑な電装品や大容量家電を使う場合は、必ず対応容量を事前に確認しましょう。"
+  },
+  "start_drivecharge": {
+    "question": "走行充電（車の運転によるバッテリー充電）に関することでお困りですか？\n（サブバッテリーを走行中に充電したい、充電できているか不安なども含みます）",
+    "category": "走行充電",
+    "is_start": true,
+    "is_end": false,
+    "next_nodes": ["drivecharge_check", "drivecharge_other"],
+    "result": ""
+  },
+  "drivecharge_check": {
+    "question": "走行中、サブバッテリーの電圧や電流が上昇しているのを確認できますか？\n（バッテリーモニター／チェッカー例：RENOGY バッテリーメーター）",
+    "category": "走行充電",
+    "is_start": false,
+    "is_end": false,
+    "next_nodes": ["drivecharge_system", "drivecharge_weak"],
+    "result": ""
+  },
+  "drivecharge_system": {
+    "question": "走行充電用機器（走行充電器、昇圧機など）は設置されていますか？\n（例：エーモン 走行充電キット・RENOGY DC-DC充電器）",
+    "category": "走行充電",
+    "is_start": false,
+    "is_end": false,
+    "next_nodes": ["drivecharge_wiring", "drivecharge_dead"],
+    "result": ""
+  },
+  "drivecharge_wiring": {
+    "question": "配線・ヒューズ・端子類に断線やゆるみはありませんか？\n（目視点検や配線チェッカー例：エーモン 配線チェッカー）",
+    "category": "走行充電",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🔋 走行充電の配線にトラブルがある可能性があります。\n\n【対処法】\n1. 配線のゆるみや断線をまず目視・手触りで確認。\n2. 配線チェッカーやテスター（例：SANWA MG100）で通電状況を調べましょう。\n3. ヒューズ（例：エーモン管ヒューズ）も切れていないか確認。\n4. 必要に応じて配線・ヒューズの交換または専門店で点検依頼。\n\n【ワンポイント】\nDIY作業時は「バッテリー端子外し」「エンジン停止」を徹底し安全に作業してください。"
+  },
+  "drivecharge_dead": {
+    "question": "",
+    "category": "走行充電",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🔋 走行充電機器が故障・動作不良の可能性があります。\n\n【対処法】\n1. 走行充電器本体の故障の場合は新品交換（例：エーモン 走行充電キット、RENOGY DC-DC充電器）を検討。\n2. 設置・配線に不安がある場合は専門店での点検・修理依頼。\n3. 充電器の設定や仕様確認も重要です。\n\n【ワンポイント】\n走行充電器は車種・バッテリー容量に合わせた適切な製品選びが重要です。"
+  },
+  "drivecharge_weak": {
+    "question": "",
+    "category": "走行充電",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🔋 走行充電の充電量が少ない・充電が遅い場合です。\n\n【対処法】\n1. 走行時間・距離を増やして充電時間を確保。\n2. 充電器の設定や出力確認（例：RENOGY DC-DC充電器の設定）。\n3. バッテリー容量と充電器の出力バランスを確認。\n4. 充電が追いつかない場合は大容量バッテリーへの交換も検討。\n\n【ワンポイント】\n短距離・短時間の使用が多い場合は、外部充電器の併用も効果的です。"
+  },
+  "drivecharge_other": {
+    "question": "",
+    "category": "走行充電",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🔋 その他の走行充電関連トラブルです。\n\n【対処法】\n1. 複雑な充電システムや複数バッテリー構成の場合は専門店での点検推奨。\n2. 充電器のメーカーサポートや取扱説明書の確認。\n3. 充電システム全体の見直し・改善も検討。\n\n【ワンポイント】\n充電システムは安全に重要な部分なので、不安な場合は必ずプロに相談しましょう。"
+  },
+  "start_electrics": {
+    "question": "電装品（照明・コンセント・スイッチ・配線等）の不具合でお困りですか？\n（電源が入らない・一部だけ使えない・配線の異常など）",
+    "category": "電装",
+    "is_start": true,
+    "is_end": false,
+    "next_nodes": ["electrics_check", "electrics_other"],
+    "result": ""
+  },
+  "electrics_check": {
+    "question": "電装品の不具合は全体ですか？それとも一部の機器だけですか？",
+    "category": "電装",
+    "is_start": false,
+    "is_end": false,
+    "next_nodes": ["electrics_dead", "electrics_wiring"],
+    "result": ""
+  },
+  "electrics_dead": {
+    "question": "",
+    "category": "電装",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "⚡️ 電装品本体またはヒューズの故障・断線の可能性があります。\n\n【対処法】\n1. ヒューズ切れは新品（エーモン ヒューズセット、パナソニック ヒューズ）で必ず交換してください。\n2. 電装品本体（照明、コントローラー等）が故障の場合は対応部品・新品交換（例：パナソニック LEDライト、Maxell 車載ライト）を。\n3. DIYが不安な場合は必ず専門業者や整備工場に依頼。\n\n【ワンポイント】\n高電圧部は感電防止に必ず電源OFF・絶縁手袋着用を推奨します。"
+  },
+  "electrics_wiring": {
+    "question": "",
+    "category": "電装",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "⚡️ 配線・端子の接触不良や断線が疑われます。\n\n【対処法】\n1. ワイヤーブラシや端子クリーナー（エーモン 端子クリーナー）で端子・配線部を清掃。\n2. 配線チェッカー（SANWA MG100）やテスターで通電確認もおすすめです。\n3. 傷んだ配線は自分で直せない場合は工場・電気店に依頼してください。\n\n【ワンポイント】\n配線のDIY作業は必ず電源OFF、脱着時は慎重に。"
+  },
+  "electrics_partial": {
+    "question": "",
+    "category": "電装",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "⚡️ 一部の電装品だけが不具合の場合です。\n\n【対処法】\n1. 機器本体の電源ソケット・プラグ・コード（パナソニック ザ・タップX）をチェック。\n2. 接点復活スプレー（KURE 5-56）で接続部の掃除。\n3. 状況改善しない場合は機器の買い替え検討やメーカーサポート利用も一案です。\n\n【ワンポイント】\n異常発熱や焦げ臭の場合は即電源を切り、安全を最優先してください。"
+  },
+  "electrics_other": {
+    "question": "",
+    "category": "電装",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "⚡️ その他の電装系トラブルです。\n\n【対処法】\n1. 不明な故障や複数箇所のトラブルの場合は、速やかにプロの工場や電気工事士へ点検・修理依頼。\n2. 火災・感電に備え、異常時はブレーカーやバッテリー端子を優先的にOFFにしてください。\n\n【ワンポイント】\n自分で修理が難しい場合は安全を確保し、無理をせず専門家に相談しましょう。"
+  },
+  "start_toilet": {
+    "question": "トイレ（家庭用・車載用・キャンプ用）の水漏れ・詰まり・臭い・動作不良等でお困りですか？\n（流れが悪い、水が止まらない、臭いが気になる、ウォシュレットが使えないなど）",
+    "category": "トイレ",
+    "is_start": true,
+    "is_end": false,
+    "next_nodes": ["toilet_flowcheck", "toilet_other"],
+    "result": ""
+  },
+  "toilet_flowcheck": {
+    "question": "排水・洗浄時に水の流れや勢いに異常はありますか？（排水が弱い、詰まり気味、水があふれるなど）",
+    "category": "トイレ",
+    "is_start": false,
+    "is_end": false,
+    "next_nodes": ["toilet_stop", "toilet_clean"],
+    "result": ""
+  },
+  "toilet_stop": {
+    "question": "一時的な応急処置が必要ですか？\n（水があふれて止まらない・詰まりで手早く対応したいなど）",
+    "category": "トイレ",
+    "is_start": false,
+    "is_end": false,
+    "next_nodes": ["toilet_dead", "toilet_weak"],
+    "result": ""
+  },
+  "toilet_dead": {
+    "question": "",
+    "category": "トイレ",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🚽 水が止まらず溢れる、もしくは排水が完全に詰まっている状態です。\n\n【対処法】\n1. 止水栓をすぐ閉め、水漏れを止める。\n2. ラバーカップ（スッポン）（例：アサヒ衛陶 ラバーカップ）で詰まり除去。\n3. ポータブルトイレや仮設トイレの場合は水タンクキャップの締め直し、タンク交換。\n4. 状況が改善しない場合は水道修理・トイレ専門業者への修理依頼。\n\n【ワンポイント】\n強い詰まりの場合は無理に流そうとせず、プロに相談しましょう。"
+  },
+  "toilet_weak": {
+    "question": "",
+    "category": "トイレ",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🚽 排水・水流が弱い、詰まりが軽度の場合です。\n\n【対処法】\n1. トイレ用洗浄剤（おすすめ：ジョンソン トイレの洗剤パイプユニッシュ）で配管掃除。\n2. ラバーカップ（アサヒ衛陶 ラバーカップ）やスネーク式パイプクリーナー（カンダ 排水管クリーナー）で物理的な詰まり解消。\n3. タンク内のゴミや異物が原因の場合は手袋着用で取り除く。\n4. 詰まりが頻発する場合は定期清掃と専門業者相談を。\n\n【ワンポイント】\n洗浄剤使用時は必ず説明書通りの放置時間を守りましょう。"
+  },
+  "toilet_clean": {
+    "question": "",
+    "category": "トイレ",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🚽 臭いや汚れ・水垢などの問題の場合です。\n\n【対処法】\n1. トイレ用消臭・除菌剤（おすすめ：小林製薬 トイレの消臭元）や洗浄剤で定期的に掃除。\n2. ウォシュレット・便座のフィルター掃除（メーカー純正フィルター、Panasonic トイレ用フィルターなど）。\n3. 汚れがひどい場合はハンディブラシ（カンダ トイレブラシ）で細部まで洗浄。\n4. 臭いが強い場合は換気扇の点検も。\n\n【ワンポイント】\n定期的な掃除と消臭対策で快適なトイレ空間を保ちましょう。"
+  },
+  "toilet_other": {
+    "question": "",
+    "category": "トイレ",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🚽 その他のトイレ関連トラブル（電源系・故障・水漏れなど）の場合です。\n\n【対処法】\n1. 電動便座やウォシュレットの場合は電源プラグ・配線、ヒューズ（エーモン ヒューズセット）の点検。\n2. 自力対処が困難な場合、メーカー・専門修理業者への相談推奨。\n3. 水漏れ・異臭がある場合は使用を控え、速やかにプロに点検・修理依頼。\n\n【ワンポイント】\n違和感があったら無理せず早めに専門業者へ連絡しましょう。"
+  },
+  "start_fridge": {
+    "question": "冷蔵庫（家庭用・車載用・キャンプ用など）の電源や冷却等でお困りですか？\n（冷えない、電源が入らない、異音がする、異臭なども含みます）",
+    "category": "冷蔵庫",
+    "is_start": true,
+    "is_end": false,
+    "next_nodes": ["fridge_poweron", "fridge_other"],
+    "result": ""
+  },
+  "fridge_poweron": {
+    "question": "冷蔵庫の電源は入りますか？電源ランプや動作音はありますか？\n（ACアダプターやシガーソケット、ポータブル電源利用の場合も含みます）",
+    "category": "冷蔵庫",
+    "is_start": false,
+    "is_end": false,
+    "next_nodes": ["fridge_temperature", "fridge_connection"],
+    "result": ""
+  },
+  "fridge_temperature": {
+    "question": "冷蔵庫内部の温度は下がっていますか？庫内温度計（例：タニタ デジタル冷蔵庫温度計 TT-580）で測定できますか？",
+    "category": "冷蔵庫",
+    "is_start": false,
+    "is_end": false,
+    "next_nodes": ["fridge_dead", "fridge_weak"],
+    "result": ""
+  },
+  "fridge_dead": {
+    "question": "",
+    "category": "冷蔵庫",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🧊 冷蔵庫本体の故障や電源供給不足の可能性があります。\n\n【対処法】\n1. 電源コードやアダプターの断線・接触不良を確認し、必要に応じて新品（アイリスオーヤマ ACアダプター）に交換。\n2. 車載の場合はサブバッテリーやポータブル電源（例：Jackery ポータブル電源 240）側の残量確認と充電。\n3. 改善しない場合はメーカーサポートや専門業者へ修理依頼。\n\n【ワンポイント】\n本体裏の回路異常ランプ点灯時はすぐ電源OFF。"
+  },
+  "fridge_connection": {
+    "question": "",
+    "category": "冷蔵庫",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🧊 電源接続部やプラグ、延長コードに問題がある可能性があります。\n\n【対処法】\n1. 接点復活スプレー（KURE 5-56）やクリーナーブラシで端子部の掃除。\n2. 延長コード・タップ（例：パナソニック ザ・タップX）や電源ソケットの緩み・腐食点検、必要なら新品交換。\n3. 配線確認時は必ず電源OFF・プラグを抜いて安全に作業。\n\n【ワンポイント】\n車載用冷蔵庫はシガーソケット側のヒューズ（エーモン ヒューズセット）もチェック。"
+  },
+  "fridge_weak": {
+    "question": "",
+    "category": "冷蔵庫",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🧊 冷蔵庫の冷却能力低下や経年劣化の可能性があります。\n\n【対処法】\n1. 冷却ファン部・排熱部を掃除（エアダスター例：KURE エアダスターガン）。\n2. 詰め込みすぎや周囲温度が高い場合は庫内の整理・設置場所の調整。\n3. 冷蔵庫自体が古い場合は省エネ・高性能モデル（例：Panasonic NR-B14AW）への買い替え検討。\n\n【ワンポイント】\nポータブル電源利用時は出力容量（W数）と冷蔵庫消費電力のバランスを確認しましょう。"
+  },
+  "fridge_other": {
+    "question": "",
+    "category": "冷蔵庫",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🧊 その他の冷蔵庫関連トラブルです。\n\n【対処法】\n1. 冷却パイプの霜詰まり・製氷装置の不具合・異臭の場合は一度庫内の掃除。\n2. 異音や漏水、エラー表示は原因特定できない場合すぐメーカーや購入店に相談。\n\n【ワンポイント】\n冷蔵庫の異臭や焦げ臭いときはすぐ電源を切り、専用サポート窓口にご相談ください。"
+  },
+  "start_gas": {
+    "question": "ガス（LPガス、都市ガス、キャンプ用ガスなど）の供給や器具の動作に関するお困りですか？\n（火が付かない・異臭・圧力低下なども含みます）",
+    "category": "ガス",
+    "is_start": true,
+    "is_end": false,
+    "next_nodes": ["gas_appliance", "gas_other"],
+    "result": ""
+  },
+  "gas_appliance": {
+    "question": "ガスコンロや給湯器、ヒーターなど、使いたい器具で火がつきませんか？\n（自動点火しない・火力が弱い・エラー表示など）",
+    "category": "ガス",
+    "is_start": false,
+    "is_end": false,
+    "next_nodes": ["gas_pressure", "gas_weak"],
+    "result": ""
+  },
+  "gas_pressure": {
+    "question": "ガス圧力調整器や残量チェッカー（例：フジガス ガス残量チェッカー）でガス圧や残量の確認はできますか？",
+    "category": "ガス",
+    "is_start": false,
+    "is_end": false,
+    "next_nodes": ["gas_dead", "gas_connection"],
+    "result": ""
+  },
+  "gas_dead": {
+    "question": "",
+    "category": "ガス",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🔥 ガス切れまたは供給停止の可能性があります。\n\n【対処法】\n1. ガス充填・交換（LPガスボンベ例：イワタニ カセットガス）を行いましょう。\n2. 都市ガスの場合は元栓・メーターの安全装置リセット（通常はメーター横ボタン長押し）も試してください。\n3. 繰り返し切れる場合は、器具の消費量・交換時期を見直しましょう。\n\n【ワンポイント】\nガス漏れの疑いがある場合は、即換気＆ガス会社へ連絡を！"
+  },
+  "gas_connection": {
+    "question": "",
+    "category": "ガス",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🔥 ガスホースや接続部に異常・接触不良の可能性があります。\n\n【対処法】\n1. ガスホースの劣化（固さ・ひび割れ）や接続金具のゆるみがないかチェック。\n2. 接続増し締めや新しいガスホース（おすすめ：ハーマン ガス用ホース）・ガスホースクリップ（カンダ ガスホース用クリップ）への交換。\n3. ホース内の埃・水分除去のためホース専用クリーナー（KURE エアダスターガン）も利用可能。\n\n【ワンポイント】\nガス器具の接続・交換は必ず元栓を閉め、換気した状態で実施してください。"
+  },
+  "gas_weak": {
+    "question": "",
+    "category": "ガス",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🔥 ガス器具や圧力調整器の劣化・能力不足が考えられます。\n\n【対処法】\n1. 圧力調整器（おすすめ：イワタニ 圧力調整器 PPR-1）やガス器具自体の見直し・交換。\n2. 長期使用の場合は部品交換・器具クリーニング（例：スプレー型クリーナーでバーナー掃除）。\n3. 新品交換の際は、消費ガス量・容量が合ったものを選びましょう。\n\n【ワンポイント】\n火力が不安定な時はガス残量や圧力調整器の詰まりもご注意ください。"
+  },
+  "gas_other": {
+    "question": "",
+    "category": "ガス",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🔥 その他のガス関連トラブルです。\n\n【対処法】\n1. ガスメーターや安全装置の作動、器具本体の故障も考えられます。\n2. 自力で原因特定が難しい場合は、ガス会社や専門業者への相談・点検がおすすめです。\n\n【ワンポイント】\nガス臭や警報音がした場合は必ず換気し、速やかにガス供給元へご連絡ください。"
+  },
+  "start_inverter": {
+    "question": "インバーター（DC→AC変換装置）の利用や電源供給に関するお困りでしょうか？\n（家電が動かない・インバーターのランプ点灯異常・発熱なども含みます）",
+    "category": "インバーター",
+    "is_start": true,
+    "is_end": false,
+    "next_nodes": ["inverter_poweron", "inverter_other"],
+    "result": ""
+  },
+  "inverter_poweron": {
+    "question": "インバーターの電源がONになるものの、AC出力端子から家電などが作動しない状態ですか？\n（例：ランプ点灯しない・通電しているようで使えない）",
+    "category": "インバーター",
+    "is_start": false,
+    "is_end": false,
+    "next_nodes": ["inverter_voltage", "inverter_weak"],
+    "result": ""
+  },
+  "inverter_voltage": {
+    "question": "インバーター入力側（バッテリー）と出力側（AC100V）を電圧計やテスター（SANWA CD771など）で測定できますか？",
+    "category": "インバーター",
+    "is_start": false,
+    "is_end": false,
+    "next_nodes": ["inverter_dead", "inverter_connection"],
+    "result": ""
+  },
+  "inverter_dead": {
+    "question": "",
+    "category": "インバーター",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🔌 インバーター本体の故障やバッテリー電圧低下の可能性があります。\n\n【対処法】\n1. バッテリー電圧（DC側）不足→チャージャー（例：NOCO GENIUS1）での充電。\n2. インバーター過負荷や内部エラーの場合は、一度電源OFFし説明書記載のリセット操作を。\n3. 長期使用や異常発熱の場合は本体の新品交換（例：メルテック 正弦波インバーター SG-1500）がおすすめです。\n\n【ワンポイント】\n高出力家電（電子レンジなど）は定格出力の2~3倍のインバーターが必要です。"
+  },
+  "inverter_connection": {
+    "question": "",
+    "category": "インバーター",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🔌 入力・出力配線や端子部分の接触不良が疑われます。\n\n【対処法】\n1. DC入力ケーブル・端子の清掃には端子クリーナー（エーモン 端子磨きブラシ）がおすすめ。\n2. 接続部分の締め付け・腐食確認を行い、劣化部品は交換。\n3. AC端子・プラグは接点復活スプレー（KURE 5-56）で清掃。\n\n【ワンポイント】\n安全のため、必ず電源OFF・バッテリー端子を外して作業してください。"
+  },
+  "inverter_weak": {
+    "question": "",
+    "category": "インバーター",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🔌 インバーター容量不足や長期劣化・バッテリー能力低下が考えられます。\n\n【対処法】\n1. インバーターの容量（出力W数）を家電・負荷量に合わせて見直しましょう。\n2. より大容量インバーター（例：パワーインバーTER PM-1500）や新品バッテリー（例：パナソニック カオス N-M65R/A3）への交換検討。\n3. 頻繁な容量不足は分電・使用家電の見直しも有効です。\n\n【ワンポイント】\n家電動作に必要な起動電力が定格消費電力より大きい場合もあるので注意！"
+  },
+  "inverter_other": {
+    "question": "",
+    "category": "インバーター",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🔌 その他のインバーター関連トラブルです。\n\n【対処法】\n1. 過度な熱や異音が続く場合は即使用中止。\n2. 説明書やメーカーのFAQ・サポートサイト（メルテック、パワーインバーTER等）で症状例を確認。\n3. 不明点・分解が難しい場合はプロの電装業者・購入店へご相談を。\n\n【ワンポイント】\nインバーター取付・修理は電気専門知識が必要ですので、無理せず専門家に相談しましょう。"
+  },
+  "start_externalpower": {
+    "question": "外部電源（AC電源やキャンプ用外部入力端子など）の接続・供給に関するトラブルですか？\n（RV・キャンピングカーの電源が入らない／外部入力から家電が動かないなども含みます）",
+    "category": "外部電源",
+    "is_start": true,
+    "is_end": false,
+    "next_nodes": ["externalpower_check", "externalpower_other"],
+    "result": ""
+  },
+  "externalpower_check": {
+    "question": "外部電源ケーブルの接続状態や端子の破損はありませんか？\n（電源ケーブル例：FUTURE FOX 防水AC電源コード 15m、端子キャップ・プラグ）",
+    "category": "外部電源",
+    "is_start": false,
+    "is_end": false,
+    "next_nodes": ["externalpower_voltage", "externalpower_connection"],
+    "result": ""
+  },
+  "externalpower_voltage": {
+    "question": "接続後に電圧測定器（マルチテスター例：SANWA CD772）でAC100Vが来ているかチェックできますか？",
+    "category": "外部電源",
+    "is_start": false,
+    "is_end": false,
+    "next_nodes": ["externalpower_dead", "externalpower_appliance"],
+    "result": ""
+  },
+  "externalpower_dead": {
+    "question": "",
+    "category": "外部電源",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🔌 外部電源供給がありません（入力断・停電・コード断線の可能性）\n\n【対処法】\n1. 電源コード自体や差込口の断線・破損がないか目視と手触りで確認し、異常なら新品（FUTURE FOX 防水AC電源コードなど）に交換。\n2. 電源側（発電機・野外コンセント等）のブレーカーが落ちていないか確認。\n3. 必要に応じて専門業者への相談もおすすめです。\n\n【ワンポイント】\nケーブルには規格に合ったものを使い、濡れた手での作業や雨天時は安全に注意！"
+  },
+  "externalpower_appliance": {
+    "question": "",
+    "category": "外部電源",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🔌 外部電源は通電しているが家電が作動しない状態です。\n\n【対処法】\n1. 家電・機器自体の電源ケーブル・プラグ・ヒューズ（エーモン ヒューズセット）に損傷や緩みがないかチェック。\n2. 延長コード・タップ（例：パナソニック ザ・タップX）も点検しましょう。\n3. 対応電流・ワット数を満たしているか、仕様確認も重要。\n\n【ワンポイント】\n高出力家電（IH、電子レンジ等）は専用回路や昇圧器（YAZAWA 変圧器等）が必要な場合があります。"
+  },
+  "externalpower_connection": {
+    "question": "",
+    "category": "外部電源",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🔌 ケーブルや端子部の接触不良、汚れ・腐食の可能性があります。\n\n【対処法】\n1. 端子の清掃には接点復活スプレー（KURE 5-56）やクリーナーブラシが便利です。\n2. 差込口・端子部がぐらついていたり傷んでいる場合は交換しましょう。\n3. ケーブルキャップなど防水対策も忘れずに。\n\n【ワンポイント】\n端子清掃は必ず電源OFF時に安全確認してから実施してください。"
+  },
+  "externalpower_other": {
+    "question": "",
+    "category": "外部電源",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🔌 その他の外部電源関連トラブルです。\n\n【対処法】\n1. 電源機器（発電機・コンバーター等）の動作確認。\n2. システム全体見直しや不明な場合はメーカー・電気工事業者等への相談がおすすめです。\n\n【ワンポイント】\n長時間運用や屋外利用時は各部の劣化・断線・防水対策を定期的にチェックしましょう。"
+  },
+  "start_ffheater": {
+    "question": "FFヒーター（車載・キャンピングカー等の強制排気式ヒーター）でトラブルがありますか？\n（暖まらない、異常表示、小さな異音・異臭、排気や通電の異常など）",
+    "category": "FFヒーター",
+    "is_start": true,
+    "is_end": false,
+    "next_nodes": ["ffheater_poweron", "ffheater_other"],
+    "result": ""
+  },
+  "ffheater_poweron": {
+    "question": "電源ONで表示ランプや操作パネルは正常に点灯しますか？\n（バッテリーや外部電源の異常も事前に確認してください）",
+    "category": "FFヒーター",
+    "is_start": false,
+    "is_end": false,
+    "next_nodes": ["ffheater_fan", "ffheater_connection"],
+    "result": ""
+  },
+  "ffheater_fan": {
+    "question": "起動直後、ファンや送風音は聞こえますか？（吹出口に手を当てて風や微振動を感じられるか）",
+    "category": "FFヒーター",
+    "is_start": false,
+    "is_end": false,
+    "next_nodes": ["ffheater_dead", "ffheater_weak"],
+    "result": ""
+  },
+  "ffheater_dead": {
+    "question": "",
+    "category": "FFヒーター",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🔥 FFヒーター本体、コントロールユニットの故障や安全装置作動の可能性があります。\n\n【対処法】\n1. 取扱説明書のリセット操作（例：ダイニチ FF式ヒーター）を試みてください。\n2. 安全装置や排気管の詰まり・凍結（エアダスターやKUREエアダスターガンで掃除）もチェック。\n3. 異常表示や復旧しない場合は、メーカーサポートや専門整備業者に修理依頼を。\n\n【ワンポイント】\n排気ポートや吹出口の雪・ゴミ詰まりも暖房不良の原因です。"
+  },
+  "ffheater_connection": {
+    "question": "",
+    "category": "FFヒーター",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🔥 電源ケーブル・端子・配線に接触不良や断線の疑いがあります。\n\n【対処法】\n1. 端子磨き（エーモン 端子磨きブラシ）や接点復活スプレー（KURE 5-56）で配線・端子部を清掃。\n2. DIYは必ず電源OFF・バッテリー外して安全に作業。\n3. 再度通電で改善なければ配線・端子交換または整備工場依頼。\n\n【ワンポイント】\n冬季や長期保管後は必ず配線・端子の緩みも点検しましょう。"
+  },
+  "ffheater_weak": {
+    "question": "",
+    "category": "FFヒーター",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🔥 FFヒーターのファン、燃焼部の能力低下や内部フィルターの詰まりが考えられます。\n\n【対処法】\n1. 吹出口・吸気口の掃除（ハンディブラシやKUREエアダスターガン）。\n2. 長期使用なら定期メンテナンス（メーカー推奨例：ダイニチ、ヴァーベン FFヒーター定期点検キット）。\n3. 経年劣化や異臭・異音のときは新品への交換や専門業者へ依頼。\n\n【ワンポイント】\nフィルターの詰まりや燃焼不良は早めの対策が安心です。"
+  },
+  "ffheater_other": {
+    "question": "",
+    "category": "FFヒーター",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🔥 その他のFFヒーター関連トラブルです。\n\n【対処法】\n1. 排気管の凍結・詰まり、外部要因による異常（積雪、虫、巣作り等）もチェック。\n2. 自分で原因特定が難しい場合・取扱説明書で解決できない場合はメーカー・専門業者へ相談。\n\n【ワンポイント】\n異臭や煙が出たら必ず電源OFF、即プロに連絡してください。"
+  },
+  "start_leak": {
+    "question": "雨漏り（屋根・窓・壁・車両・テント等）に関するトラブルでお困りですか？\n（水滴が落ちる・壁が濡れる・カビや湿気・天井にシミなども含みます）",
+    "category": "雨漏り",
+    "is_start": true,
+    "is_end": false,
+    "next_nodes": ["leak_pointcheck", "leak_other"],
+    "result": ""
+  },
+  "leak_pointcheck": {
+    "question": "雨漏り箇所を特定できますか？（目視や天井裏・壁・窓枠などをライトや鏡で点検してみてください）",
+    "category": "雨漏り",
+    "is_start": false,
+    "is_end": false,
+    "next_nodes": ["leak_stop", "leak_protect"],
+    "result": ""
+  },
+  "leak_stop": {
+    "question": "今すぐの応急処置が必要ですか？\n（ひどい漏水・家財が濡れる・急な水ぼたぼた等）",
+    "category": "雨漏り",
+    "is_start": false,
+    "is_end": false,
+    "next_nodes": ["leak_dead", "leak_weak"],
+    "result": ""
+  },
+  "leak_dead": {
+    "question": "",
+    "category": "雨漏り",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "💧 雨漏り箇所が特定でき、緊急の応急処置が必要です。\n\n【対処法】\n1. 防水テープ（おすすめ：ニトムズ 強力防水テープ）やシール剤（コニシ ボンド シリコンシーラント）で一時止水処置。\n2. 屋根やテントの場合はブルーシート（TRUSCO ブルーシート）で覆う。\n3. 水滴受けバケツ・広げたタオル（アイリスオーヤマ 吸水タオル）も活用。\n4. 応急処置後は必ずプロの工務店・リフォーム業者による本格修理をご検討ください。\n\n【ワンポイント】\n高所や屋根作業は安全対策をとり、無理をしないようにしましょう。"
+  },
+  "leak_weak": {
+    "question": "",
+    "category": "雨漏り",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "💧 雨漏り箇所が軽微で大量の水たまりはない場合です。\n\n【対処法】\n1. シミや壁紙の膨れはカビ防止のためすぐ換気し、乾燥を促してください。\n2. 吸水シート（アイリスオーヤマ 吸水シート）や防カビ剤（アース製薬 カビ防止スプレー）で予防。\n3. 水分量が多い場合は除湿機（パナソニック F-YHVX120）や送風機で乾燥。\n4. 状況が改善しない場合は専門業者による点検・修理をおすすめします。\n\n【ワンポイント】\n長期間放置すると木部腐食やカビ繁殖の恐れがあります。"
+  },
+  "leak_protect": {
+    "question": "",
+    "category": "雨漏り",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "💧 雨漏り箇所が不明または広範囲の場合です。\n\n【対処法】\n1. 懐中電灯（GENTOS LEDライト）や鏡・カメラで天井裏や壁の奥まで点検可能。\n2. 窓枠や外壁の目地には防水テープ・コーキング（コニシ シリコンシーラント）も併用。\n3. 問題箇所が見つからない場合は、雨天時の動画・写真記録が後の業者説明に役立ちます。\n\n【ワンポイント】\n高所点検・壁穴からの水侵入は無理せず専門家へ相談しましょう。"
+  },
+      "leak_other": {
+      "question": "",
+      "category": "雨漏り",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "💧 その他の雨漏りや浸水疑いがある場合です。\n\n【対処法】\n1. 集中豪雨・台風後は必ず全ての部屋・天井・壁・床をチェック。\n2. 家具や家電が濡れた場合は速やかに乾燥・除湿を行い、被害が大きい場合は火災保険の相談もおすすめ。\n3. 原因不明や広範囲の場合は建築士・専門業者へ状況説明し適切な修理・検査依頼を。\n\n【ワンポイント】\n安全のため、雨漏り発見時は速やかに電源やブレーカーを切り、通電状態と水の接触に注意してください。"
+    },
+    "start_pump": {
+      "question": "水が出ない・水圧が弱いなど、水道ポンプに関するトラブルでお困りですか？\n（判断がつかない場合も「はい」で進んでください）",
+      "category": "水道ポンプ",
+      "is_start": true,
+      "is_end": false,
+      "next_nodes": ["pump_noise", "pump_other"],
+      "result": ""
+    },
+    "pump_noise": {
+      "question": "普段と違う音（異音・大きな振動）がポンプからしますか？\n（カラカラ音・唸り音・振動など）",
+      "category": "水道ポンプ",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["pump_air", "pump_flow_weak"],
+      "result": ""
+    },
+    "pump_air": {
+      "question": "エア噛み（ポンプ内や配管内に空気が混入）の兆候がありますか？\n（水が途切れ途切れ・空気混じりで出る、吐水口から泡が出る等）",
+      "category": "水道ポンプ",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["pump_air_end", "pump_filter"],
+      "result": ""
+    },
+    "pump_air_end": {
+      "question": "",
+      "category": "水道ポンプ",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔵 **配管やポンプにエア噛みの可能性があります。**\n\n【対処法】\n1. 一旦ポンプを停止し、吸込側・吐出側のエア抜きバルブや排水栓をゆっくり開けて空気を抜いてください。\n2. 配管の末端や高い位置にエアが溜まりやすいので、ご注意ください。\n3. 何度か再起動しても改善しない場合は、配管の構造やバルブの状態を点検し専門業者に相談しましょう。\n\n【ワンポイント】\n作業の際は必ず電源を切り安全を確保してください。"
+    },
+    "pump_filter": {
+      "question": "",
+      "category": "水道ポンプ",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔵 **フィルターの詰まりやゴミの混入が考えられます。**\n\n【対処法】\n1. 蛇口・配管のフィルターを外して歯ブラシなどで優しく掃除しましょう。\n2. ゴミ・砂・サビが溜まっている場合は取り除き、水を十分に流してから元に戻してください。\n3. 改善しない場合は他の詰まりや逆止弁の不良も疑い、無理せず専門業者に相談をおすすめします。\n\n【ワンポイント】\n清掃の際は閉栓や水抜きをしてください。"
+    },
+    "pump_flow_weak": {
+      "question": "",
+      "category": "水道ポンプ",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔵 **ポンプの能力低下や劣化の可能性があります。**\n\n【対処法】\n1. ポンプ設置後年数が経っている場合は、内部の摩耗やゴム部品の劣化も考えられます。\n2. 異音・異臭がする場合やポンプ本体が熱くなっている場合は速やかに運転を停止してください。\n3. 予備のポンプや修理用工具を準備し、専門の水道業者に点検を依頼されることを推奨します。\n\n【ワンポイント】\n異常時は自己判断せず、安全第一でご対応ください。"
+    },
+    "pump_other": {
+      "question": "",
+      "category": "水道ポンプ",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔵 **その他のポンプ関連の不具合です。**\n\n【対処法】\n1. 配線の断線や電源の異常など電気系統の点検もご確認ください。\n2. ポンプや配管の施工・材質に不安がある場合は、専門の水道設備業者へご相談いただくのが安心です。\n\n【ワンポイント】\n水漏れや感電の危険があるときはすぐ使用を中止し、プロに任せましょう。"
+    },
+    "start_battery": {
+      "question": "お困りの内容はバッテリーに関することですか？\n（車の始動や電気系統のトラブルも含みます。分からない場合も「はい」で進めてください）",
+      "category": "バッテリー",
+      "is_start": true,
+      "is_end": false,
+      "next_nodes": ["engine_start", "battery_other"],
+      "result": ""
+    },
+    "engine_start": {
+      "question": "最近、エンジンの始動がいつもより遅い・難しいと感じましたか？\n（「キーを回しても反応が鈍い」「セルが弱い・カチッと音だけ」など）",
+      "category": "バッテリー",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["battery_voltage_check", "battery_weak"],
+      "result": ""
+    },
+    "battery_voltage_check": {
+      "question": "バッテリーの電圧をテスター等で測れますか？\n（ご自身でできない場合は車屋さんに相談するのも安心です）",
+      "category": "バッテリー",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["battery_low_voltage", "connection_check"],
+      "result": ""
+    },
+    "battery_low_voltage": {
+      "question": "測定した電圧が12V未満でしたか？\n（新品時は12.6V前後です。12Vを大きく下回ると要注意）",
+      "category": "バッテリー",
+      "is_start": false,
+      "is_end": false,
+      "next_nodes": ["battery_dead", "battery_charging"],
+      "result": ""
+    },
+    "battery_dead": {
+      "question": "",
+      "category": "バッテリー",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔋 バッテリー完全放電の可能性が高いです。\n\n【アドバイス】\n- 急なトラブルでも慌てず、まず安全確認を。\n- ブースターケーブルでのジャンプスタートや充電器での充電が応急処置として有効です。\n- 古く劣化している場合は早めの新品交換がおすすめです。\n\n【一言】\n無理せず、分からないことはプロ（自動車整備士・カーショップ）に相談すると安心です。"
+    },
+    "battery_charging": {
+      "question": "",
+      "category": "バッテリー",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔋 バッテリー充電不足の可能性があります。\n\n【アドバイス】\n- バッテリー充電器で8-12時間しっかり充電しましょう。\n- 充電後に再度電圧確認とエンジン始動チェックを。\n- 長距離運転後でも改善しない場合はバッテリー自体の劣化も考慮しましょう。\n\n【一言】\n定期的な点検や充電、早めの対応でトラブル防止につながります。"
+    },
+    "connection_check": {
+      "question": "",
+      "category": "バッテリー",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔋 バッテリー端子/配線の接続不良が疑われます。\n\n【アドバイス】\n- 端子部分の汚れや錆をワイヤーブラシできれいにしましょう。\n- 端子の締め付け確認、配線の接触不良を点検してください。\n- 不安や難しい場合は整備工場に依頼しましょう。\n\n【一言】\n安全に作業するため、必ずエンジン停止時に行ってください。"
+    },
+    "battery_weak": {
+      "question": "",
+      "category": "バッテリー",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔋 バッテリーが劣化している可能性があります。\n\n【アドバイス】\n- 一度充電でも始動性が改善しない場合は交換の検討を。\n- バッテリー液の確認・補充も有効（補充タイプのみ）。\n- 定期点検を受けると安心です。\n\n【一言】\n交換時は取扱説明書やプロの案内に従いましょう。"
+    },
+    "battery_other": {
+      "question": "",
+      "category": "バッテリー",
+      "is_start": false,
+      "is_end": true,
+      "next_nodes": [],
+      "result": "🔋 その他のバッテリー関連トラブルです。\n\n【アドバイス】\n- 電気系統や配線異常の可能性も。自分で解決できない複雑な故障は、迷わず専門業者へ。\n- 運転中に警告灯が点いた、異臭・焦げ臭さを感じる場合はすぐ安全な場所へ停車してください。\n\n【一言】\n安全・安心のため、気になる症状は早めにプロへご相談ください。"
+    },
+      "start_solar": {
+        "question": "ソーラーパネルの発電・充電状態や取付などでお困りですか？\n（充電しない・発電量が落ちた・パネルの汚れ・損傷・配線異常なども含みます）",
+        "category": "ソーラーパネル",
+        "is_start": true,
+        "is_end": false,
+        "next_nodes": ["solar_chargecheck", "solar_other"],
+        "result": ""
+      },
+      "solar_chargecheck": {
+        "question": "発電量や充電状態をソーラーチャージコントローラーの表示やバッテリーモニター（例：RENOGY バッテリーモニター）で確認できますか？",
+        "category": "ソーラーパネル",
+        "is_start": false,
+        "is_end": false,
+        "next_nodes": ["solar_panelcheck", "solar_wiring"],
+        "result": ""
+      },
+      "solar_panelcheck": {
+        "question": "ソーラーパネルの表面に汚れ・破損・目立つ影・積雪はありませんか？\n（高所作業は無理せず、道具はGENTOS LEDライトやマイクロファイバークロス、ガラスクリーナーなどがおすすめです）",
+        "category": "ソーラーパネル",
+        "is_start": false,
+        "is_end": false,
+        "next_nodes": ["solar_dead", "solar_cleaning"],
+        "result": ""
+      },
+      "solar_dead": {
+        "question": "",
+        "category": "ソーラーパネル",
+        "is_start": false,
+        "is_end": true,
+        "next_nodes": [],
+        "result": "🔋 ソーラーパネル自体やコントローラー、バッテリーへの異常の可能性があります。\n\n【対処法】\n1. 発電しない場合はチャージコントローラー（RENOGY Roverシリーズ等）のエラー表示点検。\n2. バッテリー直前・直後の配線電圧をSANWA CD771などのテスターで確認。\n3. 無通電・エラー時はパネル・コントローラー・バッテリーの順で不良個所特定。\n4. 故障部品は新品交換やメーカーサポート相談。\n\n【ワンポイント】\n各コネクター・ヒューズ（RENOGY 専用ヒューズキット）状態も忘れず点検しましょう。"
+      },
+      "solar_cleaning": {
+        "question": "",
+        "category": "ソーラーパネル",
+        "is_start": false,
+        "is_end": true,
+        "next_nodes": [],
+        "result": "🔋 ソーラーパネル表面の汚れ・影・雪が発電低下の原因です。\n\n【対処法】\n1. マイクロファイバークロス、ガラス用クリーナーで優しく掃除。\n2. 高所作業時は安全ハシゴや作業ヘルメットの着用を。\n3. 葉っぱ・鳥のフン・雪はこまめに除去し発電効率Up。\n\n【ワンポイント】\nシーズン毎や黄砂・花粉時期の点検・清掃が長持ちのコツです。"
+      },
+      "solar_wiring": {
+        "question": "",
+        "category": "ソーラーパネル",
+        "is_start": false,
+        "is_end": true,
+        "next_nodes": [],
+        "result": "🔋 配線・コネクターの接触不良や断線が考えられます。\n\n【対処法】\n1. MC4コネクタや配線、ヒューズ（RENOGY MC4ヒューズキット、エーモン 補修端子）は緩み・腐食・断線に注意。\n2. テスターや配線チェッカー（SANWA MG100）で通電確認。\n3. 防水処理された配線は無理に動かさず劣化箇所は交換推奨。\n\n【ワンポイント】\n自信がない場合や異常発熱時はプロへ相談しましょう。"
+      },
+      "solar_other": {
+        "question": "",
+        "category": "ソーラーパネル",
+        "is_start": false,
+        "is_end": true,
+        "next_nodes": [],
+        "result": "🔋 その他のソーラーパネル関連のトラブルです。\n\n【対処法】\n1. チャージコントローラーの動作エラー・設定間違いも多く、マニュアル確認・初期化を試してください。\n2. パネル設置角度や取り付け金具のゆるみ、遮光物の移動も点検。\n3. 原因不明やDIYが難しい場合は、メーカー・キャンピングカー専門業者に相談しましょう。\n\n【ワンポイント】\n長期使うほど点検・清掃・記録が予防に役立ちます。"
+      },
+      "start_roofvent": {
+        "question": "ルーフベント（キャンピングカーの換気口・天井ファン）の作動や異音・換気不良などで困っていませんか？\n（電源が入らない、ファンが回らない、異音、換気が弱いなども含みます）",
+        "category": "ルーフベント",
+        "is_start": true,
+        "is_end": false,
+        "next_nodes": ["roofvent_fanon", "roofvent_other"],
+        "result": ""
+      },
+      "roofvent_fanon": {
+        "question": "ファンのスイッチは正常に動作しますか？電源ランプやファンの動作音はありますか？（例：MAXXFANファンやDometic換気口）",
+        "category": "ルーフベント",
+        "is_start": false,
+        "is_end": false,
+        "next_nodes": ["roofvent_airflow", "roofvent_connection"],
+        "result": ""
+      },
+      "roofvent_airflow": {
+        "question": "ファンの風量は十分ですか？異音（ガラガラ音・振動など）はありませんか？羽根やフィルターの汚れは？",
+        "category": "ルーフベント",
+        "is_start": false,
+        "is_end": false,
+        "next_nodes": ["roofvent_dead", "roofvent_weak"],
+        "result": ""
+      },
+      "roofvent_dead": {
+        "question": "",
+        "category": "ルーフベント",
+        "is_start": false,
+        "is_end": true,
+        "next_nodes": [],
+        "result": "🌀 ファンモーターや電源基板の故障が疑われます。\n\n【対処法】\n1. モーター本体交換（MAXXFAN純正部品等）。\n2. コントロール基板のリセットまたは交換。\n3. 電源コードや接続部も必ず点検。\n\n【ワンポイント】\n高所作業になるので、安全性に注意し、DIY困難なら専門業者に依頼しましょう。"
+      },
+      "roofvent_weak": {
+        "question": "",
+        "category": "ルーフベント",
+        "is_start": false,
+        "is_end": true,
+        "next_nodes": [],
+        "result": "🌀 ファン羽根やフィルターの詰まり、ベアリングの摩耗が考えられます。\n\n【対処法】\n1. 羽根・フィルターの清掃にはマイクロファイバークロスやエアダスター（KURE エアダスターガン）が便利です。\n2. 異音時は潤滑油（KURE 5-56）をベアリング部に少量塗布。\n3. 定期的なメンテナンス・清掃を行いましょう。\n\n【ワンポイント】\nファン清掃は必ず換気停止・電源OFFで行いましょう。"
+      },
+      "roofvent_connection": {
+        "question": "",
+        "category": "ルーフベント",
+        "is_start": false,
+        "is_end": true,
+        "next_nodes": [],
+        "result": "🌀 電源やスイッチ・端子の接触不良の可能性。\n\n【対処法】\n1. ケーブル・端子の接続確認と清掃。\n2. 接点復活剤（KURE 5-56）で端子部を掃除。\n3. 電源コードの断線や古くなった場合は交換。\n\n【ワンポイント】\n作業前は必ず電源を切って安全を確保してください。"
+      },
+      "roofvent_other": {
+        "question": "",
+        "category": "ルーフベント",
+        "is_start": false,
+        "is_end": true,
+        "next_nodes": [],
+        "result": "🌀 その他のルーフベントトラブルです。\n\n【対処法】\n1. 換気口の開閉機構（ハンドルやギア部）の引っ掛かり・摩耗はパーツ交換で対応。\n2. パーツや部品単位で純正品をご利用ください（MAXXFAN交換用ギア等）。\n3. DIYが苦手な場合や高所で怖い場合は、無理せず専門業者へ相談しましょう。\n\n【ワンポイント】\n換気性能維持のため、季節ごとに作動・清掃チェックがおすすめです。"
+      },
+
+      {
+        "start_tv_av": {
+          "question": "テレビ・アンテナ・AVシステム（電波受信・画面・音声）のトラブルでお困りですか？\n（映らない、音が出ない、受信障害、ノイズ、操作不良なども含みます）",
+          "category": "テレビ・アンテナ・AVシステム",
+          "is_start": true,
+          "is_end": false,
+          "next_nodes": ["tv_av_check", "tv_av_other"],
+          "result": ""
+        },
+        "tv_av_check": {
+          "question": "テレビは正常に映りますか？音声が出ますか？アンテナレベルやAVセレクター切り替えは問題ありませんか？（地デジ/BS/CSアンテナ：DXアンテナ、AVセレクター：BUFFALO、HDMI切替器など）",
+          "category": "テレビ・アンテナ・AVシステム",
+          "is_start": false,
+          "is_end": false,
+          "next_nodes": ["tv_av_signal", "tv_av_connection"],
+          "result": ""
+        },
+        "tv_av_signal": {
+          "question": "画面が映らない・チラつく・音声が途切れる症状はありますか？アンテナ受信レベルは十分ですか？",
+          "category": "テレビ・アンテナ・AVシステム",
+          "is_start": false,
+          "is_end": false,
+          "next_nodes": ["tv_av_dead", "tv_av_weak"],
+          "result": ""
+        },
+        "tv_av_dead": {
+          "question": "",
+          "category": "テレビ・アンテナ・AVシステム",
+          "is_start": false,
+          "is_end": true,
+          "next_nodes": [],
+          "result": "📺 テレビ/AV本体故障やアンテナ破損の可能性です。\n\n【対処法】\n1. テレビ本体リセット・再起動（ポータブルTV例：パナソニック プライベートビエラ）。\n2. アンテナ本体/ケーブル（DXアンテナ 地デジ用）や分波器の部品交換。\n3. 判断が難しい場合はメーカーサービスや家電修理店に相談しましょう。\n\n【ワンポイント】\n画面が真っ暗/操作不能は、まず電源(サブバッテリー)と本体を点検。"
+        },
+        "tv_av_weak": {
+          "question": "",
+          "category": "テレビ・アンテナ・AVシステム",
+          "is_start": false,
+          "is_end": true,
+          "next_nodes": [],
+          "result": "📺 受信感度の不足やノイズ・雑音・画質/音声不良。\n\n【対処法】\n1. アンテナの向き調整や取付場所変更。\n2. ブースター（DXアンテナ 室内ブースター）増設も効果的です。\n3. ノイズ抑制のため配線整理、ノイズフィルター（サンワサプライ ノイズフィルター）利用もおすすめ。\n\n【ワンポイント】\n山間部や走行中は受信感度が落ちることがあります。"
+        },
+        "tv_av_connection": {
+          "question": "",
+          "category": "テレビ・アンテナ・AVシステム",
+          "is_start": false,
+          "is_end": true,
+          "next_nodes": [],
+          "result": "📺 配線・端子・接続不良。\n\n【対処法】\n1. HDMI/アンテナケーブル抜き差し、端子クリーナー（KURE 5-56）で清掃。\n2. AVセレクター・分波器（BUFFALO AVセレクター）も接続見直し。\n3. 接触不良部品は新品交換。\n\n【ワンポイント】\n車体移動や振動時は端子部の増し締めが有効。"
+        },
+        "tv_av_other": {
+          "question": "",
+          "category": "テレビ・アンテナ・AVシステム",
+          "is_start": false,
+          "is_end": true,
+          "next_nodes": [],
+          "result": "📺 その他のAV機器トラブルです。\n\n【対処法】\n1. ソフトウェア更新やリセット（取扱説明書参照）。\n2. USB/SDカード等の外部メディア・電源状態（ポータブルバッテリー：Jackery、Anker製等）確認。\n3. DIY困難・複雑な場合はメーカーサポートや専門業者へ。\n\n【ワンポイント】\n外部入力機器の誤作動もあるので利用機器ごとの再接続も試してみてください。"
+        }
+      },
+
+      {
+        "start_windowdoor": {
+          "question": "窓・ドア・網戸（キャンピングカー・住宅）の開閉・ロック・断熱・虫侵入防止などでお困りですか？\n（スムーズに開閉できない、鍵の掛かりが悪い、すきま風・虫の侵入なども含みます）",
+          "category": "窓・ドア・網戸",
+          "is_start": true,
+          "is_end": false,
+          "next_nodes": ["windowdoor_check", "windowdoor_other"],
+          "result": ""
+        },
+        "windowdoor_check": {
+          "question": "窓・ドアは滑らかに開閉できますか？ロックは確実に掛かりますか？網戸に破れや外れはありませんか？",
+          "category": "窓・ドア・網戸",
+          "is_start": false,
+          "is_end": false,
+          "next_nodes": ["windowdoor_lock", "windowdoor_screen"],
+          "result": ""
+        },
+        "windowdoor_lock": {
+          "question": "鍵穴・ロックは固くないですか？ガタつきや施錠不良はありませんか？（鍵・ヒンジなど専用潤滑剤使用がおすすめ：KURE 5-56）",
+          "category": "窓・ドア・網戸",
+          "is_start": false,
+          "is_end": false,
+          "next_nodes": ["windowdoor_dead", "windowdoor_weak"],
+          "result": ""
+        },
+        "windowdoor_dead": {
+          "question": "",
+          "category": "窓・ドア・網戸",
+          "is_start": false,
+          "is_end": true,
+          "next_nodes": [],
+          "result": "🚪 ロックやヒンジに重大な不良があります。\n\n【対処法】\n1. 鍵・ラッチ・ヒンジの部品交換（車用パーツ例：カーメイト スペアキー、YKK玄関ドア用交換部品）。\n2. 固着には潤滑剤（KURE 5-56）を。\n3. 網戸の外れや破れには網戸補修テープ（アサヒペン 網戸補修）等。\n\n【ワンポイント】\n防犯・断熱性の維持のため、専門業者や工務店の施工も推奨します。"
+        },
+        "windowdoor_weak": {
+          "question": "",
+          "category": "窓・ドア・網戸",
+          "is_start": false,
+          "is_end": true,
+          "next_nodes": [],
+          "result": "🚪 窓・ドアの動きが硬い、開閉や密閉性が弱い状態です。\n\n【対処法】\n1. ヒンジ・鍵穴・戸車の清掃（ブラシ）と潤滑油（KURE 5-56）使用。\n2. ドアパッキンや隙間テープ（ニトムズ すきまテープ）追加で断熱。\n\n【ワンポイント】\nすきま風は断熱性能低下・虫侵入原因となるので早めに対策しましょう。"
+        },
+        "windowdoor_screen": {
+          "question": "",
+          "category": "窓・ドア・網戸",
+          "is_start": false,
+          "is_end": true,
+          "next_nodes": [],
+          "result": "🚪 網戸の破れや外れです。\n\n【対処法】\n1. 網戸補修専用テープ（アサヒペン 網戸補修シート）でDIY補修。\n2. 網戸本体の新品交換も検討可能（リクシル 網戸・窓用ネット等）。\n3. 強化タイプや虫除けネット（バルサン 虫除けネット）もおすすめ。\n\n【ワンポイント】\n虫対策・快適性向上のため夏前に点検しましょう。"
+        },
+        "windowdoor_other": {
+          "question": "",
+          "category": "窓・ドア・網戸",
+          "is_start": false,
+          "is_end": true,
+          "next_nodes": [],
+          "result": "🚪 その他の窓・ドア・網戸トラブルです。\n\n【対処法】\n1. 断熱材追加・遮音材設置も快適性向上に有効です（ニトムズ 断熱シート等）。\n2. DIY困難や大規模故障時は必ず専門業者・工務店へ相談しましょう。\n\n【ワンポイント】\n窓・ドアの定期的な点検で安全・快適な室内環境を保ちましょう。"
+        },
+        "start_navibackcam": {
+          "question": "ナビゲーション・バックカメラ（画像表示・作動・センサー配線）の不具合でお困りですか？\n（画面が映らない・カメラが作動しない・センサーエラーなども含みます）",
+          "category": "ナビ・バックカメラ",
+          "is_start": true,
+          "is_end": false,
+          "next_nodes": ["navibackcam_check", "navibackcam_other"],
+          "result": ""
+        },
+        "navibackcam_check": {
+          "question": "ナビやバックカメラの画面表示は正常ですか？モニターにノイズ、暗い/途切れる、またはエラー表示はありませんか？\n（例：KENWOOD 彩速ナビ、パナソニック ストラーダ、カーメイト バックカメラ）",
+          "category": "ナビ・バックカメラ",
+          "is_start": false,
+          "is_end": false,
+          "next_nodes": ["navibackcam_display", "navibackcam_connection"],
+          "result": ""
+        },
+        "navibackcam_display": {
+          "question": "モニター本体の電源・入力切換は正常ですか？画面が映らない場合はリセット操作・再起動を試せますか？",
+          "category": "ナビ・バックカメラ",
+          "is_start": false,
+          "is_end": false,
+          "next_nodes": ["navibackcam_dead", "navibackcam_weak"],
+          "result": ""
+        },
+        "navibackcam_dead": {
+          "question": "",
+          "category": "ナビ・バックカメラ",
+          "is_start": false,
+          "is_end": true,
+          "next_nodes": [],
+          "result": "🛰 モニター/カメラ本体の故障・エラーの可能性です。\n\n【対処法】\n1. ナビ本体リセット・再起動（KENWOODは電源長押し、パナソニックは設定メニュー内リセット）。\n2. カメラユニット、ディスプレイの部品交換（バックカメラ例：カーメイト DC2000、エーモン カメラ）。\n3. 不明な場合、メーカーサービスまたは取り付け販売店に相談しましょう。\n\n【ワンポイント】\n画面真っ暗のときはまず電源状態と入力信号（AV/HDMI）確認を。"
+        },
+        "navibackcam_weak": {
+          "question": "",
+          "category": "ナビ・バックカメラ",
+          "is_start": false,
+          "is_end": true,
+          "next_nodes": [],
+          "result": "🛰 画像表示の不具合・色調異常・ノイズや水滴、センサー誤表示の状態です。\n\n【対処法】\n1. レンズの汚れや曇りを拭き取り（カメラレンズクリーナー：PEARL レンズクリーナー、メガネクリーナー等）。\n2. 配線/コネクタの再接続や増し締め。\n3. 屋外設置部の防水処理（カーメイト防水テープ等）やコーキング推奨。\n\n【ワンポイント】\nバックカメラは定期的に清掃し、雨後・洗車後もチェックを推奨。"
+        },
+        "navibackcam_connection": {
+          "question": "",
+          "category": "ナビ・バックカメラ",
+          "is_start": false,
+          "is_end": true,
+          "next_nodes": [],
+          "result": "🛰 配線・端子・センサー・カメラ接続不良です。\n\n【対処法】\n1. ケーブル断線・端子腐食は修復や端子交換（エーモン 配線修理セット、KURE 5-56接点復活剤）。\n2. AVケーブルの抜き差し・配線ルート見直し。\n3. 新品ケーブルやコネクター部品（エーモン端子、KENWOOD AVケーブル）も対応可能。\n\n【ワンポイント】\n長距離走行や振動後は配線チェックを忘れずに。"
+        },
+        "navibackcam_other": {
+          "question": "",
+          "category": "ナビ・バックカメラ",
+          "is_start": false,
+          "is_end": true,
+          "next_nodes": [],
+          "result": "🛰 その他のナビ/バックカメラ関連トラブルです。\n\n【対処法】\n1. 地図データ更新やソフトウェアのバージョンアップ（SDカード交換・USBアップデート）。\n2. DIYが難しい場合はメーカーや取り付け業者、ショップへ相談しましょう。\n\n【ワンポイント】\n運転支援機能やセンサーの初期化も併せて行うと不具合解消につながります。"
+        }
+      },
+
+      {
+  "start_vent": {
+    "question": "換気扇・排気システム（キャンピングカーや住宅のファン、排気口）の作動や異音・吸排気不良で困っていませんか？\n（電源が入らない、ファンが回らない、異音、吸排気力低下、臭いがこもるなども含みます）",
+    "category": "換気扇・排気システム",
+    "is_start": true,
+    "is_end": false,
+    "next_nodes": ["vent_check", "vent_other"],
+    "result": ""
+  },
+  "vent_check": {
+    "question": "換気扇やファンはONで正常に回りますか？異音や振動、吸排気力の低下はありませんか？フィルターは定期的に掃除できていますか？",
+    "category": "換気扇・排気システム",
+    "is_start": false,
+    "is_end": false,
+    "next_nodes": ["vent_dead", "vent_filter"],
+    "result": ""
+  },
+  "vent_dead": {
+    "question": "",
+    "category": "換気扇・排気システム",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🌬 モーターや本体故障が疑われます。\n\n【対処法】\n1. モーター本体交換（おすすめ：Panasonic 換気扇用モーター、三菱 換気扇本体ユニット）。\n2. 基盤やスイッチも異常があれば交換。\n3. 異音・回転不良のまま使うと故障拡大の危険あり。DIY困難なら業者相談を。\n\n【ワンポイント】\n分解・取付は必ず電源OFFで行いましょう。"
+  },
+  "vent_filter": {
+    "question": "",
+    "category": "換気扇・排気システム",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🌬 フィルターの詰まりや汚れが原因です。\n\n【対処法】\n1. 換気扇フィルターを取り外して掃除、交換用フィルター（パナソニック 換気扇用フィルター、アイリスオーヤマ 換気扇フィルター）を定期交換。\n2. 頑固な汚れは中性洗剤やエアダスター（KURE エアダスターガン）でクリーニング。\n\n【ワンポイント】\nフィルターは2～3ヶ月に1回の掃除・半年に1回の交換がおすすめです。"
+  },
+  "vent_connection": {
+    "question": "",
+    "category": "換気扇・排気システム",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🌬 電源部・スイッチ・端子配線の接触不良の可能性です。\n\n【対処法】\n1. 端子やスイッチの清掃（KURE 5-56 接点復活剤）。\n2. 配線チェッカー（SANWA MG100）で断線の有無を確認。\n3. 配線のゆるみ・断線は増し締めまたは新品交換。\n\n【ワンポイント】\n通電点検は必ずプロ仕様の工具で。"
+  },
+  "vent_other": {
+    "question": "",
+    "category": "換気扇・排気システム",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🌬 その他の換気扇・排気系トラブルです。\n\n【対処法】\n1. 排気口やダクトの詰まり・異物入りも確認。\n2. DIY困難や大掛かりな修理は必ず専門業者へ相談しましょう。\n\n【ワンポイント】\n臭い・湿気・結露が続く場合は早めに点検しましょう。"
+  }
+},
+
+{
+  "start_furniture": {
+    "question": "室内収納や家具（棚・扉・ロック・引き出し等）の開閉や固定・外れ・ガタつきなどでお困りですか？\n（扉が開かない・閉まらない、ロック不良、棚のズレや外れなども含みます）",
+    "category": "室内収納・家具",
+    "is_start": true,
+    "is_end": false,
+    "next_nodes": ["furniture_check", "furniture_other"],
+    "result": ""
+  },
+  "furniture_check": {
+    "question": "棚や引き出し、ドアはスムーズに開閉・ロックできますか？異音やひっかかり、外れそうな部品はありませんか？（家具金具・蝶番・スライドレールなども点検を）",
+    "category": "室内収納・家具",
+    "is_start": false,
+    "is_end": false,
+    "next_nodes": ["furniture_lock", "furniture_wobble"],
+    "result": ""
+  },
+  "furniture_lock": {
+    "question": "ロック・鍵や留め具、ストッパー部品は確実に固定できますか？鍵穴やラッチの固さやズレはありませんか？（おすすめ：カーメイト ロック部品・ikea家具ストッパー）",
+    "category": "室内収納・家具",
+    "is_start": false,
+    "is_end": false,
+    "next_nodes": ["furniture_dead", "furniture_loose"],
+    "result": ""
+  },
+  "furniture_dead": {
+    "question": "",
+    "category": "室内収納・家具",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🗄 ロックや鍵・金具の重大な不良があります。\n\n【対処法】\n1. ロック部品・蝶番・スライドレールの交換（カーメイト ロック部品、ikea蝶番など）。\n2. 固着部は潤滑剤（KURE 5-56）を使います。\n3. 引き出しや扉が外れた場合はストッパー・キャッチ追加。\n\n【ワンポイント】\n走行中の荷崩れ防止にもストッパー・キャッチ（ikea ストップパーツ等）の使用が有効です。"
+  },
+  "furniture_loose": {
+    "question": "",
+    "category": "室内収納・家具",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🗄 扉・棚・引き出しのガタつき・ズレ等の軽度不良です。\n\n【対処法】\n1. ネジの増締め・ヒンジ部の調整。\n2. ガタつきが続く場合は家具補修用金具（ikea 補修金具・小林製作所 棚用補強プレートなど）を追加。\n\n【ワンポイント】\n収納物の片寄りや重量もガタつきの原因になるため定期的な配置見直しも効果的です。"
+  },
+  "furniture_wobble": {
+    "question": "",
+    "category": "室内収納・家具",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🗄 棚・扉・家具全体の揺れや外れ、傾きの症状です。\n\n【対処法】\n1. 棚受け金具・L型補強金具（小林製作所 L型棚受け）で補強。\n2. 床面や壁面への追加固定も検討。\n\n【ワンポイント】\n重量物は下部に配置し、走行中の揺れ対策も重要です。"
+  },
+  "furniture_other": {
+    "question": "",
+    "category": "室内収納・家具",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "🗄 その他の家具・収納系トラブルです。\n\n【対処法】\n1. DIYが困難な場合は家具メーカーや内装業者相談。\n2. 棚板や天板の経年劣化は新品部品交換がおすすめ（ikea 交換棚板等）。\n\n【ワンポイント】\nキャンピングカーの揺れ・振動対策には補強・固定の見直しが効果的です。"
+  },
+  "start_led": {
+    "question": "室内灯やLED照明（全室照明・ON/OFF・調光・球切れ）のトラブルでお困りですか？\n（点灯しない、ちらつき、暗い、調光できないなども含みます）",
+    "category": "室内灯・LED",
+    "is_start": true,
+    "is_end": false,
+    "next_nodes": ["led_check", "led_other"],
+    "result": ""
+  },
+  "led_check": {
+    "question": "全ての照明は問題なくON/OFFや調光ができますか？球切れや一部がつかない、チラつき・暗い場所はありませんか？（交換用LED例：アイリスオーヤマ LED電球、パナソニック LED電球など）",
+    "category": "室内灯・LED",
+    "is_start": false,
+    "is_end": false,
+    "next_nodes": ["led_dead", "led_connection"],
+    "result": ""
+  },
+  "led_dead": {
+    "question": "",
+    "category": "室内灯・LED",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "💡 電球・LED本体の寿命や故障です。\n\n【対処法】\n1. 切れているLEDや電球を交換（おすすめ：アイリスオーヤマLEDシーリング、パナソニック 全方向型LED等）。\n2. ランプユニット自体の不良なら本体ごと交換。\n\n【ワンポイント】\nLEDは消費電力が低く、長寿命なものを選ぶと経済的です。"
+  },
+  "led_connection": {
+    "question": "",
+    "category": "室内灯・LED",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "💡 配線やスイッチ、端子・コネククトの接触不良の可能性です。\n\n【対処法】\n1. 端子やコネクタ清掃（KURE 5-56 接点クリーナー等）。\n2. スイッチやリモコン故障時は新品への交換。\n3. 配線不良時は配線チェッカーやテスター（SANWA MG100）で断線箇所を特定。\n\n【ワンポイント】\n配線作業は必ずバッテリーOFFで行いましょう。"
+  },
+  "led_weak": {
+    "question": "",
+    "category": "室内灯・LED",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "💡 光量が弱い・ちらつきや暗さが気になる場合です。\n\n【対処法】\n1. LEDのスペック見直し（高ルーメンの製品例：アイリスオーヤマ 明るいLEDランプ）。\n2. カバーの汚れはマイクロファイバークロス等でふき取り。\n3. 点灯不良が頻発する場合は本体も新品に交換。\n\n【ワンポイント】\n調光式照明は適合リモコン・スイッチ以外では誤作動も発生しやすいのでご注意を。"
+  },
+  "led_other": {
+    "question": "",
+    "category": "室内灯・LED",
+    "is_start": false,
+    "is_end": true,
+    "next_nodes": [],
+    "result": "💡 その他のLED・室内照明トラブルです。\n\n【対処法】\n1. 電源電圧・バッテリー容量不足もチェック。\n2. DIY困難や大掛かりな配線作業時は専門業者相談もおすすめです。\n\n【ワンポイント】\n全室LED化や省エネ照明で快適性・バッテリー持ちも向上します。"
+  }
+}
+]

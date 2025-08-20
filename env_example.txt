@@ -1,0 +1,17 @@
+# 環境変数設定例
+# このファイルを.envにリネームして使用してください
+
+# OpenAI API設定（必須）
+OPENAI_API_KEY=your_openai_api_key_here
+
+# Notion API設定（オプション）
+NOTION_TOKEN=your_notion_integration_token_here
+NOTION_DIAGNOSTIC_DB_ID=your_notion_database_id_here
+
+# SerpAPI設定（オプション）
+SERP_API_KEY=your_serpapi_key_here
+
+# LangSmith設定（オプション）
+LANGSMITH_API_KEY=your_langsmith_api_key_here
+LANGSMITH_PROJECT=your_project_name
+LANGSMITH_ENDPOINT=https://api.smith.langchain.com

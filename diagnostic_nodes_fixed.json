@@ -1,0 +1,985 @@
+{
+  "diagnostic_nodes": [
+    {
+      "id": "rain_leak_001",
+      "category": "雨漏り",
+      "question": "雨漏りが発生している場所はどこですか？",
+      "options": [
+        {
+          "text": "ルーフ（天井）",
+          "next_node": "rain_leak_002"
+        },
+        {
+          "text": "窓の周り",
+          "next_node": "rain_leak_003"
+        },
+        {
+          "text": "ドアの周り",
+          "next_node": "rain_leak_004"
+        },
+        {
+          "text": "その他の場所",
+          "next_node": "rain_leak_005"
+        }
+      ]
+    },
+    {
+      "id": "rain_leak_002",
+      "category": "雨漏り",
+      "question": "ルーフの雨漏りの症状を教えてください",
+      "options": [
+        {
+          "text": "天井から水滴が落ちてくる",
+          "next_node": "rain_leak_006"
+        },
+        {
+          "text": "天井にシミができている",
+          "next_node": "rain_leak_007"
+        },
+        {
+          "text": "天井が濡れている",
+          "next_node": "rain_leak_008"
+        }
+      ]
+    },
+    {
+      "id": "rain_leak_003",
+      "category": "雨漏り",
+      "question": "窓の雨漏りの症状を教えてください",
+      "options": [
+        {
+          "text": "窓枠から水が入ってくる",
+          "next_node": "rain_leak_009"
+        },
+        {
+          "text": "窓のガラスに水滴がつく",
+          "next_node": "rain_leak_010"
+        },
+        {
+          "text": "窓の周りが濡れている",
+          "next_node": "rain_leak_011"
+        }
+      ]
+    },
+    {
+      "id": "rain_leak_004",
+      "category": "雨漏り",
+      "question": "ドアの雨漏りの症状を教えてください",
+      "options": [
+        {
+          "text": "ドアの隙間から水が入ってくる",
+          "next_node": "rain_leak_012"
+        },
+        {
+          "text": "ドアの周りが濡れている",
+          "next_node": "rain_leak_013"
+        },
+        {
+          "text": "ドアのシールが劣化している",
+          "next_node": "rain_leak_014"
+        }
+      ]
+    },
+    {
+      "id": "rain_leak_005",
+      "category": "雨漏り",
+      "question": "その他の場所の雨漏りについて詳しく教えてください",
+      "options": [
+        {
+          "text": "換気扇の周り",
+          "next_node": "rain_leak_015"
+        },
+        {
+          "text": "エアコンの周り",
+          "next_node": "rain_leak_016"
+        },
+        {
+          "text": "その他",
+          "next_node": "rain_leak_017"
+        }
+      ]
+    },
+    {
+      "id": "rain_leak_006",
+      "category": "雨漏り",
+      "question": "天井から水滴が落ちる場合の対処法",
+      "options": [
+        {
+          "text": "ルーフシールの点検・修理",
+          "next_node": "rain_leak_018"
+        },
+        {
+          "text": "ルーフベントの点検・修理",
+          "next_node": "rain_leak_019"
+        },
+        {
+          "text": "専門業者に相談",
+          "next_node": "rain_leak_020"
+        }
+      ]
+    },
+    {
+      "id": "rain_leak_007",
+      "category": "雨漏り",
+      "question": "天井のシミについて",
+      "options": [
+        {
+          "text": "シミの範囲を確認",
+          "next_node": "rain_leak_021"
+        },
+        {
+          "text": "シミの色を確認",
+          "next_node": "rain_leak_022"
+        },
+        {
+          "text": "シミの進行状況を確認",
+          "next_node": "rain_leak_023"
+        }
+      ]
+    },
+    {
+      "id": "rain_leak_008",
+      "category": "雨漏り",
+      "question": "天井の濡れについて",
+      "options": [
+        {
+          "text": "濡れの範囲を確認",
+          "next_node": "rain_leak_024"
+        },
+        {
+          "text": "濡れの程度を確認",
+          "next_node": "rain_leak_025"
+        },
+        {
+          "text": "乾燥状況を確認",
+          "next_node": "rain_leak_026"
+        }
+      ]
+    },
+    {
+      "id": "rain_leak_009",
+      "category": "雨漏り",
+      "question": "窓枠からの水漏れについて",
+      "options": [
+        {
+          "text": "窓のシールを点検",
+          "next_node": "rain_leak_027"
+        },
+        {
+          "text": "窓の取り付けを点検",
+          "next_node": "rain_leak_028"
+        },
+        {
+          "text": "窓の調整を行う",
+          "next_node": "rain_leak_029"
+        }
+      ]
+    },
+    {
+      "id": "rain_leak_010",
+      "category": "雨漏り",
+      "question": "窓ガラスの水滴について",
+      "options": [
+        {
+          "text": "結露の可能性を確認",
+          "next_node": "rain_leak_030"
+        },
+        {
+          "text": "窓の断熱性能を確認",
+          "next_node": "rain_leak_031"
+        },
+        {
+          "text": "換気状況を確認",
+          "next_node": "rain_leak_032"
+        }
+      ]
+    },
+    {
+      "id": "rain_leak_011",
+      "category": "雨漏り",
+      "question": "窓周りの濡れについて",
+      "options": [
+        {
+          "text": "窓枠のシールを点検",
+          "next_node": "rain_leak_033"
+        },
+        {
+          "text": "窓の取り付けを点検",
+          "next_node": "rain_leak_034"
+        },
+        {
+          "text": "窓の調整を行う",
+          "next_node": "rain_leak_035"
+        }
+      ]
+    },
+    {
+      "id": "rain_leak_012",
+      "category": "雨漏り",
+      "question": "ドアの隙間からの水漏れについて",
+      "options": [
+        {
+          "text": "ドアのシールを点検",
+          "next_node": "rain_leak_036"
+        },
+        {
+          "text": "ドアの取り付けを点検",
+          "next_node": "rain_leak_037"
+        },
+        {
+          "text": "ドアの調整を行う",
+          "next_node": "rain_leak_038"
+        }
+      ]
+    },
+    {
+      "id": "rain_leak_013",
+      "category": "雨漏り",
+      "question": "ドア周りの濡れについて",
+      "options": [
+        {
+          "text": "ドア枠のシールを点検",
+          "next_node": "rain_leak_039"
+        },
+        {
+          "text": "ドアの取り付けを点検",
+          "next_node": "rain_leak_040"
+        },
+        {
+          "text": "ドアの調整を行う",
+          "next_node": "rain_leak_041"
+        }
+      ]
+    },
+    {
+      "id": "rain_leak_014",
+      "category": "雨漏り",
+      "question": "ドアシールの劣化について",
+      "options": [
+        {
+          "text": "シールの交換",
+          "next_node": "rain_leak_042"
+        },
+        {
+          "text": "シールの補修",
+          "next_node": "rain_leak_043"
+        },
+        {
+          "text": "専門業者に相談",
+          "next_node": "rain_leak_044"
+        }
+      ]
+    },
+    {
+      "id": "rain_leak_015",
+      "category": "雨漏り",
+      "question": "換気扇周りの雨漏りについて",
+      "options": [
+        {
+          "text": "換気扇の取り付けを点検",
+          "next_node": "rain_leak_045"
+        },
+        {
+          "text": "換気扇のシールを点検",
+          "next_node": "rain_leak_046"
+        },
+        {
+          "text": "専門業者に相談",
+          "next_node": "rain_leak_047"
+        }
+      ]
+    },
+    {
+      "id": "rain_leak_016",
+      "category": "雨漏り",
+      "question": "エアコン周りの雨漏りについて",
+      "options": [
+        {
+          "text": "エアコンの取り付けを点検",
+          "next_node": "rain_leak_048"
+        },
+        {
+          "text": "エアコンのシールを点検",
+          "next_node": "rain_leak_049"
+        },
+        {
+          "text": "専門業者に相談",
+          "next_node": "rain_leak_050"
+        }
+      ]
+    },
+    {
+      "id": "rain_leak_017",
+      "category": "雨漏り",
+      "question": "その他の雨漏りについて",
+      "options": [
+        {
+          "text": "詳細な症状を記録",
+          "next_node": "rain_leak_051"
+        },
+        {
+          "text": "写真を撮影",
+          "next_node": "rain_leak_052"
+        },
+        {
+          "text": "専門業者に相談",
+          "next_node": "rain_leak_053"
+        }
+      ]
+    },
+    {
+      "id": "ff_heater_001",
+      "category": "FFヒーター",
+      "question": "FFヒーターの症状を教えてください",
+      "options": [
+        {
+          "text": "点火しない",
+          "next_node": "ff_heater_002"
+        },
+        {
+          "text": "火が消える",
+          "next_node": "ff_heater_003"
+        },
+        {
+          "text": "火力が弱い",
+          "next_node": "ff_heater_004"
+        },
+        {
+          "text": "異音がする",
+          "next_node": "ff_heater_005"
+        }
+      ]
+    },
+    {
+      "id": "ff_heater_002",
+      "category": "FFヒーター",
+      "question": "点火しない原因を確認してください",
+      "options": [
+        {
+          "text": "ガスボンベの残量",
+          "next_node": "ff_heater_006"
+        },
+        {
+          "text": "ガスホースの接続",
+          "next_node": "ff_heater_007"
+        },
+        {
+          "text": "点火装置の動作",
+          "next_node": "ff_heater_008"
+        }
+      ]
+    },
+    {
+      "id": "ff_heater_003",
+      "category": "FFヒーター",
+      "question": "火が消える原因を確認してください",
+      "options": [
+        {
+          "text": "ガス圧力の低下",
+          "next_node": "ff_heater_009"
+        },
+        {
+          "text": "安全装置の作動",
+          "next_node": "ff_heater_010"
+        },
+        {
+          "text": "燃焼不良",
+          "next_node": "ff_heater_011"
+        }
+      ]
+    },
+    {
+      "id": "ff_heater_004",
+      "category": "FFヒーター",
+      "question": "火力が弱い原因を確認してください",
+      "options": [
+        {
+          "text": "ガス圧力の調整",
+          "next_node": "ff_heater_012"
+        },
+        {
+          "text": "バーナーの清掃",
+          "next_node": "ff_heater_013"
+        },
+        {
+          "text": "ガスホースの詰まり",
+          "next_node": "ff_heater_014"
+        }
+      ]
+    },
+    {
+      "id": "ff_heater_005",
+      "category": "FFヒーター",
+      "question": "異音の種類を教えてください",
+      "options": [
+        {
+          "text": "点火時の音",
+          "next_node": "ff_heater_015"
+        },
+        {
+          "text": "燃焼時の音",
+          "next_node": "ff_heater_016"
+        },
+        {
+          "text": "その他の音",
+          "next_node": "ff_heater_017"
+        }
+      ]
+    },
+    {
+      "id": "ff_heater_006",
+      "category": "FFヒーター",
+      "question": "ガスボンベの残量確認",
+      "options": [
+        {
+          "text": "残量ゲージを確認",
+          "next_node": "ff_heater_018"
+        },
+        {
+          "text": "ボンベを交換",
+          "next_node": "ff_heater_019"
+        },
+        {
+          "text": "重量で確認",
+          "next_node": "ff_heater_020"
+        }
+      ]
+    },
+    {
+      "id": "ff_heater_007",
+      "category": "FFヒーター",
+      "question": "ガスホースの接続確認",
+      "options": [
+        {
+          "text": "接続部の漏れ確認",
+          "next_node": "ff_heater_021"
+        },
+        {
+          "text": "ホースの損傷確認",
+          "next_node": "ff_heater_022"
+        },
+        {
+          "text": "接続を締め直す",
+          "next_node": "ff_heater_023"
+        }
+      ]
+    },
+    {
+      "id": "ff_heater_008",
+      "category": "FFヒーター",
+      "question": "点火装置の動作確認",
+      "options": [
+        {
+          "text": "電池の確認",
+          "next_node": "ff_heater_024"
+        },
+        {
+          "text": "点火音の確認",
+          "next_node": "ff_heater_025"
+        },
+        {
+          "text": "専門業者に相談",
+          "next_node": "ff_heater_026"
+        }
+      ]
+    },
+    {
+      "id": "ff_heater_009",
+      "category": "FFヒーター",
+      "question": "ガス圧力の低下について",
+      "options": [
+        {
+          "text": "ガスボンベの残量確認",
+          "next_node": "ff_heater_027"
+        },
+        {
+          "text": "レギュレーターの確認",
+          "next_node": "ff_heater_028"
+        },
+        {
+          "text": "ガスホースの確認",
+          "next_node": "ff_heater_029"
+        }
+      ]
+    },
+    {
+      "id": "ff_heater_010",
+      "category": "FFヒーター",
+      "question": "安全装置の作動について",
+      "options": [
+        {
+          "text": "酸素不足センサーの確認",
+          "next_node": "ff_heater_030"
+        },
+        {
+          "text": "過熱防止装置の確認",
+          "next_node": "ff_heater_031"
+        },
+        {
+          "text": "専門業者に相談",
+          "next_node": "ff_heater_032"
+        }
+      ]
+    },
+    {
+      "id": "ff_heater_011",
+      "category": "FFヒーター",
+      "question": "燃焼不良について",
+      "options": [
+        {
+          "text": "バーナーの清掃",
+          "next_node": "ff_heater_033"
+        },
+        {
+          "text": "空気調整の確認",
+          "next_node": "ff_heater_034"
+        },
+        {
+          "text": "専門業者に相談",
+          "next_node": "ff_heater_035"
+        }
+      ]
+    },
+    {
+      "id": "ff_heater_012",
+      "category": "FFヒーター",
+      "question": "ガス圧力の調整について",
+      "options": [
+        {
+          "text": "レギュレーターの調整",
+          "next_node": "ff_heater_036"
+        },
+        {
+          "text": "ガスボンベの交換",
+          "next_node": "ff_heater_037"
+        },
+        {
+          "text": "専門業者に相談",
+          "next_node": "ff_heater_038"
+        }
+      ]
+    },
+    {
+      "id": "ff_heater_013",
+      "category": "FFヒーター",
+      "question": "バーナーの清掃について",
+      "options": [
+        {
+          "text": "バーナーヘッドの清掃",
+          "next_node": "ff_heater_039"
+        },
+        {
+          "text": "ガス噴出孔の清掃",
+          "next_node": "ff_heater_040"
+        },
+        {
+          "text": "専門業者に相談",
+          "next_node": "ff_heater_041"
+        }
+      ]
+    },
+    {
+      "id": "ff_heater_014",
+      "category": "FFヒーター",
+      "question": "ガスホースの詰まりについて",
+      "options": [
+        {
+          "text": "ホースの清掃",
+          "next_node": "ff_heater_042"
+        },
+        {
+          "text": "ホースの交換",
+          "next_node": "ff_heater_043"
+        },
+        {
+          "text": "専門業者に相談",
+          "next_node": "ff_heater_044"
+        }
+      ]
+    },
+    {
+      "id": "ff_heater_015",
+      "category": "FFヒーター",
+      "question": "点火時の音について",
+      "options": [
+        {
+          "text": "正常な点火音",
+          "next_node": "ff_heater_045"
+        },
+        {
+          "text": "異常な点火音",
+          "next_node": "ff_heater_046"
+        },
+        {
+          "text": "点火音がしない",
+          "next_node": "ff_heater_047"
+        }
+      ]
+    },
+    {
+      "id": "ff_heater_016",
+      "category": "FFヒーター",
+      "question": "燃焼時の音について",
+      "options": [
+        {
+          "text": "正常な燃焼音",
+          "next_node": "ff_heater_048"
+        },
+        {
+          "text": "異常な燃焼音",
+          "next_node": "ff_heater_049"
+        },
+        {
+          "text": "専門業者に相談",
+          "next_node": "ff_heater_050"
+        }
+      ]
+    },
+    {
+      "id": "ff_heater_017",
+      "category": "FFヒーター",
+      "question": "その他の音について",
+      "options": [
+        {
+          "text": "詳細な症状を記録",
+          "next_node": "ff_heater_051"
+        },
+        {
+          "text": "音を録音",
+          "next_node": "ff_heater_052"
+        },
+        {
+          "text": "専門業者に相談",
+          "next_node": "ff_heater_053"
+        }
+      ]
+    },
+    {
+      "id": "refrigerator_001",
+      "category": "冷蔵庫",
+      "question": "冷蔵庫の症状を教えてください",
+      "options": [
+        {
+          "text": "冷えない",
+          "next_node": "refrigerator_002"
+        },
+        {
+          "text": "冷えすぎる",
+          "next_node": "refrigerator_003"
+        },
+        {
+          "text": "異音がする",
+          "next_node": "refrigerator_004"
+        },
+        {
+          "text": "霜がつく",
+          "next_node": "refrigerator_005"
+        }
+      ]
+    },
+    {
+      "id": "refrigerator_002",
+      "category": "冷蔵庫",
+      "question": "冷えない原因を確認してください",
+      "options": [
+        {
+          "text": "電源の確認",
+          "next_node": "refrigerator_006"
+        },
+        {
+          "text": "温度設定の確認",
+          "next_node": "refrigerator_007"
+        },
+        {
+          "text": "コンプレッサーの動作",
+          "next_node": "refrigerator_008"
+        }
+      ]
+    },
+    {
+      "id": "refrigerator_003",
+      "category": "冷蔵庫",
+      "question": "冷えすぎる原因を確認してください",
+      "options": [
+        {
+          "text": "温度設定の調整",
+          "next_node": "refrigerator_009"
+        },
+        {
+          "text": "サーモスタットの確認",
+          "next_node": "refrigerator_010"
+        },
+        {
+          "text": "センサーの確認",
+          "next_node": "refrigerator_011"
+        }
+      ]
+    },
+    {
+      "id": "refrigerator_004",
+      "category": "冷蔵庫",
+      "question": "異音の種類を教えてください",
+      "options": [
+        {
+          "text": "コンプレッサーの音",
+          "next_node": "refrigerator_012"
+        },
+        {
+          "text": "ファンの音",
+          "next_node": "refrigerator_013"
+        },
+        {
+          "text": "その他の音",
+          "next_node": "refrigerator_014"
+        }
+      ]
+    },
+    {
+      "id": "refrigerator_005",
+      "category": "冷蔵庫",
+      "question": "霜がつく原因を確認してください",
+      "options": [
+        {
+          "text": "ドアの開閉頻度",
+          "next_node": "refrigerator_015"
+        },
+        {
+          "text": "ドアの密着性",
+          "next_node": "refrigerator_016"
+        },
+        {
+          "text": "除霜機能の確認",
+          "next_node": "refrigerator_017"
+        }
+      ]
+    },
+    {
+      "id": "refrigerator_006",
+      "category": "冷蔵庫",
+      "question": "電源の確認について",
+      "options": [
+        {
+          "text": "コンセントの接続確認",
+          "next_node": "refrigerator_018"
+        },
+        {
+          "text": "ブレーカーの確認",
+          "next_node": "refrigerator_019"
+        },
+        {
+          "text": "電源コードの確認",
+          "next_node": "refrigerator_020"
+        }
+      ]
+    },
+    {
+      "id": "refrigerator_007",
+      "category": "冷蔵庫",
+      "question": "温度設定の確認について",
+      "options": [
+        {
+          "text": "設定温度の確認",
+          "next_node": "refrigerator_021"
+        },
+        {
+          "text": "温度設定の調整",
+          "next_node": "refrigerator_022"
+        },
+        {
+          "text": "温度表示の確認",
+          "next_node": "refrigerator_023"
+        }
+      ]
+    },
+    {
+      "id": "refrigerator_008",
+      "category": "冷蔵庫",
+      "question": "コンプレッサーの動作確認",
+      "options": [
+        {
+          "text": "コンプレッサーの音を確認",
+          "next_node": "refrigerator_024"
+        },
+        {
+          "text": "コンプレッサーの振動を確認",
+          "next_node": "refrigerator_025"
+        },
+        {
+          "text": "専門業者に相談",
+          "next_node": "refrigerator_026"
+        }
+      ]
+    },
+    {
+      "id": "refrigerator_009",
+      "category": "冷蔵庫",
+      "question": "温度設定の調整について",
+      "options": [
+        {
+          "text": "設定温度を上げる",
+          "next_node": "refrigerator_027"
+        },
+        {
+          "text": "設定温度を下げる",
+          "next_node": "refrigerator_028"
+        },
+        {
+          "text": "自動設定に変更",
+          "next_node": "refrigerator_029"
+        }
+      ]
+    },
+    {
+      "id": "refrigerator_010",
+      "category": "冷蔵庫",
+      "question": "サーモスタットの確認について",
+      "options": [
+        {
+          "text": "サーモスタットの動作確認",
+          "next_node": "refrigerator_030"
+        },
+        {
+          "text": "サーモスタットの調整",
+          "next_node": "refrigerator_031"
+        },
+        {
+          "text": "専門業者に相談",
+          "next_node": "refrigerator_032"
+        }
+      ]
+    },
+    {
+      "id": "refrigerator_011",
+      "category": "冷蔵庫",
+      "question": "センサーの確認について",
+      "options": [
+        {
+          "text": "温度センサーの確認",
+          "next_node": "refrigerator_033"
+        },
+        {
+          "text": "霜センサーの確認",
+          "next_node": "refrigerator_034"
+        },
+        {
+          "text": "専門業者に相談",
+          "next_node": "refrigerator_035"
+        }
+      ]
+    },
+    {
+      "id": "refrigerator_012",
+      "category": "冷蔵庫",
+      "question": "コンプレッサーの音について",
+      "options": [
+        {
+          "text": "正常な動作音",
+          "next_node": "refrigerator_036"
+        },
+        {
+          "text": "異常な動作音",
+          "next_node": "refrigerator_037"
+        },
+        {
+          "text": "音がしない",
+          "next_node": "refrigerator_038"
+        }
+      ]
+    },
+    {
+      "id": "refrigerator_013",
+      "category": "冷蔵庫",
+      "question": "ファンの音について",
+      "options": [
+        {
+          "text": "正常なファン音",
+          "next_node": "refrigerator_039"
+        },
+        {
+          "text": "異常なファン音",
+          "next_node": "refrigerator_040"
+        },
+        {
+          "text": "ファン音がしない",
+          "next_node": "refrigerator_041"
+        }
+      ]
+    },
+    {
+      "id": "refrigerator_014",
+      "category": "冷蔵庫",
+      "question": "その他の音について",
+      "options": [
+        {
+          "text": "詳細な症状を記録",
+          "next_node": "refrigerator_042"
+        },
+        {
+          "text": "音を録音",
+          "next_node": "refrigerator_043"
+        },
+        {
+          "text": "専門業者に相談",
+          "next_node": "refrigerator_044"
+        }
+      ]
+    },
+    {
+      "id": "refrigerator_015",
+      "category": "冷蔵庫",
+      "question": "ドアの開閉頻度について",
+      "options": [
+        {
+          "text": "開閉頻度を減らす",
+          "next_node": "refrigerator_045"
+        },
+        {
+          "text": "開閉時間を短くする",
+          "next_node": "refrigerator_046"
+        },
+        {
+          "text": "開閉方法を改善",
+          "next_node": "refrigerator_047"
+        }
+      ]
+    },
+    {
+      "id": "refrigerator_016",
+      "category": "冷蔵庫",
+      "question": "ドアの密着性について",
+      "options": [
+        {
+          "text": "ドアパッキンの確認",
+          "next_node": "refrigerator_048"
+        },
+        {
+          "text": "ドアの調整",
+          "next_node": "refrigerator_049"
+        },
+        {
+          "text": "ドアパッキンの交換",
+          "next_node": "refrigerator_050"
+        }
+      ]
+    },
+    {
+      "id": "refrigerator_017",
+      "category": "冷蔵庫",
+      "question": "除霜機能の確認について",
+      "options": [
+        {
+          "text": "除霜タイマーの確認",
+          "next_node": "refrigerator_051"
+        },
+        {
+          "text": "除霜ヒーターの確認",
+          "next_node": "refrigerator_052"
+        },
+        {
+          "text": "専門業者に相談",
+          "next_node": "refrigerator_053"
+        }
+      ]
+    }
+  ]
+}
