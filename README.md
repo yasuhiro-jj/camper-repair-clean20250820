@@ -2,9 +2,37 @@
 
 キャンピングカーの修理に関する質問にAIが回答するStreamlitアプリケーションです。
 
-## 🚀 クイックスタート
+## �� クイックスタート
 
-### 方法1: Windows環境（推奨）
+### 方法1: Streamlit Cloud（推奨・本番環境）
+
+1. **GitHubにプッシュ**
+   ```bash
+   git add .
+   git commit -m "Streamlit Cloud用に設定を更新"
+   git push origin main
+   ```
+
+2. **Streamlit Cloudでデプロイ**
+   - https://share.streamlit.io/ にアクセス
+   - GitHubアカウントでログイン
+   - リポジトリを選択
+   - メインファイル: `streamlit_app.py`
+   - 環境変数を設定:
+     ```
+     OPENAI_API_KEY = sk-your-openai-api-key
+     NOTION_API_KEY = your-notion-api-key
+     NODE_DB_ID = your-notion-node-database-id
+     CASE_DB_ID = your-notion-case-database-id
+     ```
+   - "Deploy!" ボタンをクリック
+
+3. **アクセス**
+   ```
+   https://your-app-name.streamlit.app
+   ```
+
+### 方法2: Windows環境（ローカル開発）
 
 1. **バッチファイルをダブルクリック**
    ```
@@ -16,7 +44,7 @@
    http://localhost:8501
    ```
 
-### 方法2: Pythonスクリプト
+### 方法3: Pythonスクリプト
 
 1. **起動スクリプトを実行**
    ```bash
@@ -28,7 +56,7 @@
    http://localhost:8501
    ```
 
-### 方法3: 手動起動
+### 方法4: 手動起動
 
 1. **依存関係をインストール**
    ```bash
@@ -75,8 +103,59 @@ OPENAI_API_KEY=sk-your-actual-api-key-here
 ## 📋 システム要件
 
 - Python 3.8以上
-- Windows 10/11（推奨）
+- Windows 10/11（ローカル開発）
 - インターネット接続
+
+## 🚀 Streamlit Cloud デプロイメント
+
+### 事前準備
+
+1. **GitHubリポジトリの準備**
+   - コードをGitHubにプッシュ
+   - `streamlit_app.py`がメインファイルとして存在
+
+2. **環境変数の準備**
+   - OpenAI APIキー
+   - Notion APIキー（オプション）
+   - データベースID（オプション）
+
+### デプロイ手順
+
+1. **Streamlit Cloudにアクセス**
+   ```
+   https://share.streamlit.io/
+   ```
+
+2. **リポジトリを選択**
+   - GitHubアカウントでログイン
+   - 対象リポジトリを選択
+
+3. **設定を入力**
+   - **Main file path**: `streamlit_app.py`
+   - **Python version**: 3.9以上を選択
+
+4. **環境変数を設定**
+   ```
+   OPENAI_API_KEY = sk-your-openai-api-key
+   NOTION_API_KEY = your-notion-api-key
+   NODE_DB_ID = your-notion-node-database-id
+   CASE_DB_ID = your-notion-case-database-id
+   ```
+
+5. **デプロイ実行**
+   - "Deploy!" ボタンをクリック
+   - 数分でデプロイ完了
+
+### デプロイ後の確認
+
+✅ **動作確認**
+- AIチャット機能
+- 症状診断機能
+- Notion連携機能
+
+✅ **セキュリティ確認**
+- APIキーが正しく設定されているか
+- 環境変数が適切に管理されているか
 
 ## 🛠️ トラブルシューティング
 
@@ -101,6 +180,19 @@ OPENAI_API_KEY=sk-your-actual-api-key-here
    streamlit run streamlit_app.py --server.port 8502
    ```
 
+### Streamlit Cloudでの問題
+
+1. **デプロイエラー**
+   - ログを確認してエラーメッセージを確認
+   - 環境変数が正しく設定されているか確認
+
+2. **依存関係エラー**
+   - `requirements.txt`のバージョンを確認
+   - 互換性の問題がないか確認
+
+3. **ファイル読み込みエラー**
+   - PDFやテキストファイルがリポジトリに含まれているか確認
+
 ### よくあるエラー
 
 - **ModuleNotFoundError**: 依存関係が不足
@@ -119,4 +211,5 @@ OPENAI_API_KEY=sk-your-actual-api-key-here
 
 - **v1.0.0**: 初回リリース
 - **v1.1.0**: Windows環境対応の改善
-- **v1.2.0**: 起動スクリプトの追加 
+- **v1.2.0**: 起動スクリプトの追加
+- **v1.3.0**: Streamlit Cloud対応 
