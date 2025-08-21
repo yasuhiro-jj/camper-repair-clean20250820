@@ -4,8 +4,14 @@ import os
 import uuid
 import re
 import json
-from notion_client import Client
 import time
+
+# Notionクライアントのインポート
+try:
+    from notion_client import Client
+except ImportError:
+    st.error("notion-client モジュールが見つかりません。requirements.txtに notion-client==2.2.1 を追加してください。")
+    Client = None
 
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_core.messages import BaseMessage
@@ -30,6 +36,10 @@ import config
 # === Notion連携機能 ===
 def initialize_notion_client():
     """Notionクライアントを初期化"""
+    if Client is None:
+        st.error("❌ notion-client モジュールが利用できません")
+        return None
+    
     try:
         # 複数の環境変数名に対応
         api_key = os.getenv("NOTION_API_KEY") or os.getenv("NOTION_TOKEN")
