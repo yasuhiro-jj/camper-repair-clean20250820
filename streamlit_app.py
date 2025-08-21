@@ -10,7 +10,7 @@ import time
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_core.messages import BaseMessage
 from langchain_core.messages import HumanMessage, AIMessage
-    from langchain_community.document_loaders import PyPDFLoader, TextLoader
+from langchain_community.document_loaders import PyPDFLoader, TextLoader
 from langchain_chroma import Chroma
 
 import glob
@@ -253,9 +253,9 @@ def load_notion_diagnostic_data():
             "start_nodes": start_nodes
         }
         
-        except Exception as e:
+    except Exception as e:
         st.error(f"❌ Notionからの診断データ読み込みに失敗: {e}")
-            return None
+        return None
     
 def load_notion_repair_cases():
     """Notionから修理ケースデータを読み込み"""
