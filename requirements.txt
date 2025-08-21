@@ -13,4 +13,5 @@ chromadb>=0.4.0
 requests>=2.31.0
 langgraph>=0.0.20
 pandas>=1.5.0
-typing-extensions>=4.0.0 
+typing-extensions>=4.0.0
+notion-client>=2.0.0 
