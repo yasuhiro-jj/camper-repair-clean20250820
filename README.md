@@ -86,18 +86,53 @@
 OPENAI_API_KEY=sk-your-actual-api-key-here
 ```
 
-### オプション設定
+### Notion連携設定（推奨）
 
-- **Notion API**: 診断機能の強化
+Notionデータベースとの連携により、診断機能が大幅に強化されます。
+
+1. **Notion APIキーを設定**
+   ```bash
+   # 以下のいずれかの形式で設定
+   NOTION_API_KEY=your_notion_integration_token_here
+   # または
+   NOTION_TOKEN=your_notion_integration_token_here
+   ```
+
+2. **データベースIDを設定**
+   ```bash
+   # 診断フローデータベース（以下のいずれかで設定）
+   NODE_DB_ID=your_notion_diagnostic_database_id_here
+   # または
+   NOTION_DIAGNOSTIC_DB_ID=your_notion_diagnostic_database_id_here
+   
+   # 修理ケースデータベース（以下のいずれかで設定）
+   CASE_DB_ID=your_notion_repair_case_database_id_here
+   # または
+   NOTION_REPAIR_CASE_DB_ID=your_notion_repair_case_database_id_here
+   
+   # 部品・工具データベース（オプション）
+   ITEM_DB_ID=your_notion_item_database_id_here
+   ```
+
+3. **接続テスト**
+   ```bash
+   streamlit run test_notion_connection.py
+   ```
+
+### その他のオプション設定
+
 - **SerpAPI**: 検索機能の追加
 - **LangSmith**: 開発・デバッグ支援
 
 ## 🔧 機能
 
 - **AI修理アドバイス**: キャンピングカーの修理に関する質問に回答
-- **診断システム**: 症状に基づく対話式診断
+- **診断システム**: 症状に基づく対話式診断（Notion連携版あり）
 - **よくある質問**: 8つのカテゴリのクイック質問
 - **自由質問チャット**: カスタム質問への回答
+- **Notion連携診断**: リアルタイムでNotionデータベースから診断フローを取得
+- **修理ケース検索**: Notionデータベースから関連する修理ケースを自動検索
+- **データキャッシュ**: パフォーマンス向上のためのセッションキャッシュ機能
 - **修理マニュアル検索**: PDF・テキストファイルからの情報取得
 
 ## 📋 システム要件

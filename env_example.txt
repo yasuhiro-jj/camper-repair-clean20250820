@@ -5,8 +5,24 @@
 OPENAI_API_KEY=your_openai_api_key_here
 
 # Notion API設定（オプション）
+# 以下のいずれかの形式で設定してください
+NOTION_API_KEY=your_notion_integration_token_here
+# または
 NOTION_TOKEN=your_notion_integration_token_here
-NOTION_DIAGNOSTIC_DB_ID=your_notion_database_id_here
+
+# NotionデータベースID設定
+# 診断フローデータベース（以下のいずれかで設定）
+NODE_DB_ID=your_notion_diagnostic_database_id_here
+# または
+NOTION_DIAGNOSTIC_DB_ID=your_notion_diagnostic_database_id_here
+
+# 修理ケースデータベース（以下のいずれかで設定）
+CASE_DB_ID=your_notion_repair_case_database_id_here
+# または
+NOTION_REPAIR_CASE_DB_ID=your_notion_repair_case_database_id_here
+
+# 部品・工具データベース（オプション）
+ITEM_DB_ID=your_notion_item_database_id_here
 
 # SerpAPI設定（オプション）
 SERP_API_KEY=your_serpapi_key_here

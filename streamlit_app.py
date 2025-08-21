@@ -10,7 +10,7 @@ import time
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_core.messages import BaseMessage
 from langchain_core.messages import HumanMessage, AIMessage
-from langchain_community.document_loaders import PyPDFLoader, TextLoader
+    from langchain_community.document_loaders import PyPDFLoader, TextLoader
 from langchain_chroma import Chroma
 
 import glob
@@ -46,8 +46,8 @@ def initialize_database():
         openai_api_key = os.getenv("OPENAI_API_KEY")
         if not openai_api_key:
             st.error("OpenAI APIキーが設定されていません")
-            return None
-            
+        return None
+
         embeddings_model = OpenAIEmbeddings(openai_api_key=openai_api_key)
         
         # ドキュメントの前処理
@@ -85,8 +85,8 @@ def generate_ai_response_with_rag(prompt):
         openai_api_key = os.getenv("OPENAI_API_KEY")
         if not openai_api_key:
             st.error("OpenAI APIキーが設定されていません")
-            return
-        
+        return
+
         # LLMの初期化
         llm = ChatOpenAI(
             model="gpt-3.5-turbo",
@@ -253,10 +253,10 @@ def load_notion_diagnostic_data():
             "start_nodes": start_nodes
         }
         
-    except Exception as e:
+        except Exception as e:
         st.error(f"❌ Notionからの診断データ読み込みに失敗: {e}")
-        return None
-
+            return None
+    
 def load_notion_repair_cases():
     """Notionから修理ケースデータを読み込み"""
     client = initialize_notion_client()
@@ -551,7 +551,7 @@ def main():
     }
     </style>
     """, unsafe_allow_html=True)
-
+    
     # ヘッダー
     st.markdown("""
     <div class="main-header">
@@ -562,7 +562,7 @@ def main():
 
     # 2つのタブを作成
     tab1, tab2 = st.tabs(["   AIチャット相談", "🔍 対話式症状診断"])
-
+    
     with tab1:
         # AIチャット相談の説明バナー
         st.markdown("""
@@ -601,7 +601,7 @@ def main():
                     with st.spinner("   修理アドバイスを生成中..."):
                         generate_ai_response_with_rag(question)
                 st.rerun()
-            
+        
             if st.button("   水道ポンプ", key="water_pump_question"):
                 question = "水道ポンプが動きません。原因と対処法を教えてください。"
                 st.session_state.messages.append({"role": "user", "content": question})
@@ -622,7 +622,7 @@ def main():
                     with st.spinner("   修理アドバイスを生成中..."):
                         generate_ai_response_with_rag(question)
                 st.rerun()
-            
+    
             if st.button("❄️ 冷蔵庫", key="refrigerator_question"):
                 question = "冷蔵庫が冷えません。原因と対処法を教えてください。"
                 st.session_state.messages.append({"role": "user", "content": question})
@@ -643,7 +643,7 @@ def main():
                     with st.spinner("   修理アドバイスを生成中..."):
                         generate_ai_response_with_rag(question)
                 st.rerun()
-            
+        
             if st.button("🆕 新しい会話", key="new_conversation"):
                 st.session_state.messages = []
                 st.rerun()
@@ -656,15 +656,15 @@ def main():
         for message in st.session_state.messages:
             with st.chat_message(message["role"]):
                 st.markdown(message["content"])
-
+        
         # ユーザー入力
         if prompt := st.chat_input("キャンピングカーの修理について質問してください..."):
             # ユーザーメッセージを追加
             st.session_state.messages.append({"role": "user", "content": prompt})
-            
+        
             with st.chat_message("user"):
                 st.markdown(prompt)
-
+        
             # AIの回答を生成（RAG機能付き）
             with st.chat_message("assistant", avatar="https://camper-repair.net/blog/wp-content/uploads/2025/05/dummy_staff_01-150x138-1.png"):
                 with st.spinner("   修理アドバイスを生成中..."):
@@ -672,7 +672,7 @@ def main():
 
         # 関連ドキュメントの表示
         show_relevant_documents()
-
+    
     with tab2:
         # 症状診断の説明
         st.markdown("""

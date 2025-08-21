@@ -1,4 +1,4 @@
-# streamlit_app_with_notion.py
+# streamlit_app_beautiful_ui.py
 import streamlit as st
 import os
 import uuid
@@ -47,7 +47,7 @@ def load_notion_diagnostic_data():
     """Notionから診断データを読み込み（キャッシュ対応）"""
     # セッション状態でキャッシュをチェック
     if "notion_diagnostic_data" in st.session_state:
-        st.info("📋 キャッシュされた診断データを使用しています")
+        # st.info("📋 キャッシュされた診断データを使用しています")  # 非表示
         return st.session_state.notion_diagnostic_data
     
     client = initialize_notion_client()
@@ -61,14 +61,9 @@ def load_notion_diagnostic_data():
             st.error("❌ NODE_DB_IDまたはNOTION_DIAGNOSTIC_DB_IDが設定されていません")
             return None
         
-        # デバッグ情報を表示
-        st.info(f"🔍 データベースID: {node_db_id}")
-        
         # Notionから診断ノードを取得
         response = client.databases.query(database_id=node_db_id)
         nodes = response.get("results", [])
-        
-        st.info(f"📊 取得したノード数: {len(nodes)}")
         
         # データを変換
         diagnostic_nodes = {}
@@ -146,8 +141,6 @@ def load_notion_diagnostic_data():
             if is_start:
                 start_nodes[category] = node_id
         
-        st.success(f"✅ 診断ノード: {len(diagnostic_nodes)}件, 開始ノード: {len(start_nodes)}件")
-        
         # セッション状態にキャッシュ
         result_data = {
             "diagnostic_nodes": diagnostic_nodes,
@@ -165,7 +158,7 @@ def load_notion_repair_cases():
     """Notionから修理ケースデータを読み込み（キャッシュ対応）"""
     # セッション状態でキャッシュをチェック
     if "notion_repair_cases" in st.session_state:
-        st.info("📋 キャッシュされた修理ケースデータを使用しています")
+        # st.info("📋 キャッシュされた修理ケースデータを使用しています")  # 非表示
         return st.session_state.notion_repair_cases
     
     client = initialize_notion_client()
@@ -285,6 +278,160 @@ def clear_notion_cache():
     if "notion_diagnostic_history" in st.session_state:
         del st.session_state.notion_diagnostic_history
 
+# === AIチャット機能 ===
+def initialize_chat_model():
+    """チャットモデルを初期化"""
+    try:
+        api_key = os.getenv("OPENAI_API_KEY")
+        if not api_key:
+            st.warning("⚠️ OPENAI_API_KEYが設定されていません")
+            return None
+        
+        model = ChatOpenAI(
+            model="gpt-3.5-turbo",
+            temperature=0.7,
+            api_key=api_key
+        )
+        return model
+    except Exception as e:
+        st.error(f"❌ チャットモデルの初期化に失敗: {e}")
+        return None
+
+def get_ai_response(model, user_message, chat_history):
+    """AIからの応答を取得"""
+    try:
+        # システムプロンプト
+        system_prompt = """あなたはキャンピングカーの修理専門のAIアシスタントです。
+以下の点に注意して回答してください：
+
+1. 安全第一：危険な作業は避け、専門家への相談を推奨
+2. 具体的な手順：段階的な修理手順を説明
+3. 必要な工具・部品：具体的な工具名や部品名を明示
+4. 予防策：再発防止のためのメンテナンス方法を提案
+5. 専門知識：キャンピングカーの特性を考慮したアドバイス
+
+ユーザーの質問に対して、親切で分かりやすく回答してください。"""
+
+        # メッセージの構築
+        messages = [{"role": "system", "content": system_prompt}]
+        
+        # チャット履歴を追加
+        for msg in chat_history:
+            if msg["role"] == "user":
+                messages.append({"role": "user", "content": msg["content"]})
+            elif msg["role"] == "assistant":
+                messages.append({"role": "assistant", "content": msg["content"]})
+        
+        # 現在のユーザーメッセージを追加
+        messages.append({"role": "user", "content": user_message})
+        
+        # AIからの応答を取得
+        response = model.invoke(messages)
+        return response.content
+        
+    except Exception as e:
+        return f"申し訳ございません。エラーが発生しました: {str(e)}"
+
+def run_ai_chat():
+    """AIチャット機能を実行"""
+    # セッション状態の初期化
+    if "chat_history" not in st.session_state:
+        st.session_state.chat_history = []
+    
+    if "chat_model" not in st.session_state:
+        st.session_state.chat_model = initialize_chat_model()
+    
+    # AIチャット相談セクション
+    st.markdown("""
+    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; border-radius: 10px; margin-bottom: 20px; color: white;">
+        <div style="display: flex; align-items: center;">
+            <span style="font-size: 1.5em; margin-right: 10px;">  </span>
+            <h3 style="margin: 0;">AIチャット相談</h3>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    st.markdown("経験豊富なAIがキャンピングカーの修理について詳しくお答えします。自由に質問してください。")
+    
+    # この機能でできること
+    st.markdown("### 🔴 この機能でできること")
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.markdown("🔧 **修理方法の詳細な説明**")
+        st.markdown("🔧 **工具や部品の選び方**")
+        st.markdown("⚠️ **安全な作業手順の案内**")
+    
+    with col2:
+        st.markdown("   **定期メンテナンスのアドバイス**")
+        st.markdown("🔍 **トラブルシューティングのヒント**")
+        st.markdown("💡 **予防策とメンテナンス方法**")
+    
+    # よくある質問ボタン
+    st.markdown("###    よくある質問（クリックで質問）")
+    
+    common_questions = {
+        "バッテリー上がり": "キャンピングカーのバッテリーが上がってしまいました。対処法を教えてください。",
+        "水道ポンプ": "水道ポンプが正常に動作しません。点検方法と修理手順を教えてください。",
+        "ガスコンロ": "ガスコンロの火が弱いです。調整方法を教えてください。",
+        "定期点検": "キャンピングカーの定期点検項目と頻度を教えてください。",
+        "冷蔵庫": "冷蔵庫が冷えません。故障の原因と対処法を教えてください。",
+        "新しい会話": "新しい会話を開始"
+    }
+    
+    # 3列でボタンを配置
+    cols = st.columns(3)
+    
+    for i, (question, prompt) in enumerate(common_questions.items()):
+        with cols[i % 3]:
+            icon = "🔋" if "バッテリー" in question else \
+                   "💧" if "ポンプ" in question else \
+                   "🔥" if "ガス" in question else \
+                   "📅" if "点検" in question else \
+                   "❄️" if "冷蔵庫" in question else \
+                   "🔄"
+            
+            if st.button(f"{icon} {question}", key=f"common_q_{i}"):
+                if question == "新しい会話":
+                    st.session_state.chat_history = []
+                    st.rerun()
+                else:
+                    # 質問をチャット履歴に追加
+                    st.session_state.chat_history.append({"role": "user", "content": prompt})
+                    st.rerun()
+    
+    # チャット履歴の表示
+    if st.session_state.chat_history:
+        st.markdown("### 💬 チャット履歴")
+        for i, message in enumerate(st.session_state.chat_history):
+            if message["role"] == "user":
+                st.markdown(f"**👤 あなた:** {message['content']}")
+            else:
+                st.markdown(f"**🤖 AI:** {message['content']}")
+            st.markdown("---")
+    
+    # 新しいメッセージの入力
+    user_input = st.text_input(
+        "キャンピングカーの修理について質問してください...",
+        key="chat_input"
+    )
+    
+    col1, col2 = st.columns([4, 1])
+    with col2:
+        if st.button("送信", key="send_message"):
+            if user_input and st.session_state.chat_model:
+                # ユーザーメッセージを履歴に追加
+                st.session_state.chat_history.append({"role": "user", "content": user_input})
+                
+                # AIからの応答を取得
+                with st.spinner("AIが回答を生成中..."):
+                    ai_response = get_ai_response(st.session_state.chat_model, user_input, st.session_state.chat_history)
+                
+                # AI応答を履歴に追加
+                st.session_state.chat_history.append({"role": "assistant", "content": ai_response})
+                
+                st.rerun()
+
 def run_notion_diagnostic_flow(diagnostic_data, current_node_id=None):
     """Notionデータを使用した診断フローを実行"""
     if not diagnostic_data:
@@ -301,7 +448,8 @@ def run_notion_diagnostic_flow(diagnostic_data, current_node_id=None):
 
     # 開始ノードの選択
     if st.session_state.notion_diagnostic_current_node is None:
-        st.markdown("###    症状診断システム（Notion連携版）")
+        # タイトルを非表示
+        # st.markdown("###    対話式症状診断システム（Notion連携版）")
         st.markdown("**症状のカテゴリを選択してください：**")
         
         # 利用可能なカテゴリを表示
@@ -346,19 +494,6 @@ def run_notion_diagnostic_flow(diagnostic_data, current_node_id=None):
         # 関連する修理ケースを表示
         st.markdown("### 📋 関連する修理ケース")
         repair_cases = load_notion_repair_cases()
-        
-        # デバッグ情報（開発時のみ表示）
-        with st.expander("🔍 デバッグ情報"):
-            st.write(f"**診断カテゴリ:** {current_node.get('category', '')}")
-            st.write(f"**診断結果:** {current_node.get('result', '')[:100]}...")
-            st.write(f"**利用可能な修理ケース数:** {len(repair_cases)}")
-            st.write(f"**現在のノードID:** {st.session_state.notion_diagnostic_current_node}")
-            st.write(f"**関連修理ケース数:** {len(current_node.get('related_repair_cases', []))}")
-            if repair_cases:
-                st.write("**修理ケースの例:**")
-                for i, case in enumerate(repair_cases[:3]):
-                    st.write(f"- {case.get('case_id', '')}: {case.get('symptoms', '')[:50]}...")
-                    st.write(f"  関連診断ノード: {len(case.get('related_diagnostic_nodes', []))}件")
         
         if repair_cases:
             # リレーションに基づく関連ケースフィルタリング（優先）
@@ -409,7 +544,7 @@ def run_notion_diagnostic_flow(diagnostic_data, current_node_id=None):
             related_cases.sort(key=lambda x: x[1], reverse=True)
             
             if related_cases:
-                st.success(f"🔍 {len(related_cases)}件の関連ケースが見つかりました")
+                st.success(f"   {len(related_cases)}件の関連ケースが見つかりました")
                 for case, score in related_cases[:3]:  # 上位3件を表示
                     with st.expander(f"   {case['case_id']}: {case['symptoms'][:50]}... (関連度: {score})"):
                         st.markdown(f"**症状:** {case['symptoms']}")
@@ -419,7 +554,7 @@ def run_notion_diagnostic_flow(diagnostic_data, current_node_id=None):
                         st.markdown(f"**難易度:** {case['difficulty']}")
             else:
                 st.info("関連する修理ケースが見つかりませんでした。")
-                st.info("💡 ヒント: Notionで診断ノードと修理ケースの関連付けを設定してください。")
+                st.info("   ヒント: Notionで診断ノードと修理ケースの関連付けを設定してください。")
         else:
             st.info("修理ケースデータを読み込めませんでした。")
         
@@ -467,39 +602,46 @@ def run_notion_diagnostic_flow(diagnostic_data, current_node_id=None):
                 st.markdown(f"{i+1}. {question}")
 
 # === メインアプリケーション ===
+# === メインアプリケーション ===
+# === メインアプリケーション ===
 def main():
     st.set_page_config(
-        page_title="キャンピングカー修理アドバイザー（Notion連携版）",
+        page_title="キャンピングカー修理専門 AIチャット",
         page_icon="  ",
         layout="wide"
     )
 
-    # ヘッダー
+    # ヘッダー（画像のような美しいデザイン）
     st.markdown("""
-    <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 10px; margin-bottom: 20px;">
-        <h1>🔧 キャンピングカー修理アドバイザー（Notion連携版）</h1>
-        <p>AIを活用したキャンピングカーの修理・メンテナンス支援システム</p>
+    <div style="text-align: center; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+        <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+            <span style="font-size: 2.5em; margin-right: 15px;">  </span>
+            <h1 style="margin: 0; font-size: 2.2em; font-weight: bold;">キャンピングカー修理専門 AIチャット</h1>
+        </div>
+        <p style="font-size: 1.2em; margin: 0; opacity: 0.9;">経験豊富なAIがキャンピングカーの修理について詳しくお答えします</p>
     </div>
     """, unsafe_allow_html=True)
 
-    # データ更新ボタン
-    col1, col2, col3 = st.columns([1, 1, 1])
-    with col2:
-        if st.button("🔄 Notionデータを再読み込み", key="reload_notion_data"):
-            clear_notion_cache()
-            st.success("✅ キャッシュをクリアしました。ページを再読み込みしてください。")
-            st.rerun()
+    # データ更新ボタン（完全に非表示）
+    # if st.button("🔄 Notionデータを再読み込み", key="reload_notion_data"):
+    #     clear_notion_cache()
+    #     st.success("✅ キャッシュをクリアしました。ページを再読み込みしてください。")
+    #     st.rerun()
 
-    # タブを作成
-    tab1, tab2 = st.tabs(["🔧 症状診断", "📊 システム情報"])
+    # タブを作成（システム情報タブを削除）
+    tab1, tab2 = st.tabs(["   AIチャット相談", "🔧 対話式症状診断"])
 
     with tab1:
-        st.markdown("""
-        <div style="background: #f0f2f6; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
-            <h3>   症状診断システム（Notion連携版）</h3>
-            <p>Notionデータベースから取得した最新の診断データを使用して、症状を段階的に診断し、最適な対処法をご案内します。</p>
-        </div>
-        """, unsafe_allow_html=True)
+        run_ai_chat()
+
+    with tab2:
+        # 説明文を非表示
+        # st.markdown("""
+        # <div style="background: #f0f2f6; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+        #     <h3>   対話式症状診断システム（Notion連携版）</h3>
+        #     <p>Notionデータベースから取得した最新の診断データを使用して、症状を段階的に診断し、最適な対処法をご案内します。</p>
+        # </div>
+        # """, unsafe_allow_html=True)
         
         # Notion連携版の診断
         notion_data = load_notion_diagnostic_data()
@@ -508,72 +650,6 @@ def main():
         else:
             st.error("Notionデータの読み込みに失敗しました。")
             st.info("環境変数の設定を確認してください。")
-
-    with tab2:
-        st.markdown("""
-        <div style="background: #f0f2f6; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
-            <h3>📊 システム情報</h3>
-            <p>システムの状態と設定情報を確認できます。</p>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        # システム情報の表示
-        col1, col2 = st.columns(2)
-        
-        with col1:
-            st.markdown("### 🔧 データソース情報")
-            
-            # Notion接続状態
-            notion_client = initialize_notion_client()
-            if notion_client:
-                st.success("✅ Notion接続: 正常")
-                
-                # データベース情報
-                node_db_id = os.getenv("NODE_DB_ID") or os.getenv("NOTION_DIAGNOSTIC_DB_ID")
-                case_db_id = os.getenv("CASE_DB_ID") or os.getenv("NOTION_REPAIR_CASE_DB_ID")
-                item_db_id = os.getenv("ITEM_DB_ID")
-                
-                if node_db_id:
-                    st.info(f"📋 診断フローDB: {node_db_id}")
-                if case_db_id:
-                    st.info(f"🔧 修理ケースDB: {case_db_id}")
-                if item_db_id:
-                    st.info(f"  ️ 部品・工具DB: {item_db_id}")
-            else:
-                st.error("❌ Notion接続: 失敗")
-                st.info("環境変数 NOTION_API_KEY または NOTION_TOKEN を確認してください。")
-        
-        with col2:
-            st.markdown("### 📈 データ統計")
-            
-            # Notionデータの統計
-            if notion_client:
-                try:
-                    # 診断ノード数
-                    node_db_id = os.getenv("NODE_DB_ID") or os.getenv("NOTION_DIAGNOSTIC_DB_ID")
-                    if node_db_id:
-                        node_response = notion_client.databases.query(database_id=node_db_id)
-                        node_count = len(node_response.get("results", []))
-                        st.metric("診断ノード数", node_count)
-                    
-                    # 修理ケース数
-                    case_db_id = os.getenv("CASE_DB_ID") or os.getenv("NOTION_REPAIR_CASE_DB_ID")
-                    if case_db_id:
-                        case_response = notion_client.databases.query(database_id=case_db_id)
-                        case_count = len(case_response.get("results", []))
-                        st.metric("修理ケース数", case_count)
-                    
-                    # 部品・工具数
-                    item_db_id = os.getenv("ITEM_DB_ID")
-                    if item_db_id:
-                        item_response = notion_client.databases.query(database_id=item_db_id)
-                        item_count = len(item_response.get("results", []))
-                        st.metric("部品・工具数", item_count)
-                        
-                except Exception as e:
-                    st.error(f"データ統計の取得に失敗: {e}")
-            else:
-                st.info("Notion接続が利用できません")
 
 if __name__ == "__main__":
     main()
