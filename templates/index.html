@@ -455,7 +455,7 @@
      </noscript>
      
      <div class="container">
-       <h1>キャンピングカー修理専門AIチャット</h1>
+       <h1>キャンピングカー修理専門<br>AIチャット</h1>
        <p class="subtitle">経験豊富なAIがキャンピングカーの修理について詳しくお答えします</p>
 
              <!-- 岡山キャンピングカー修理サポートセンター情報 -->
@@ -649,11 +649,10 @@
           },
         })
         .then(response => {
-          console.log('サーバー接続テスト成功:', response.status);
           return response.json();
         })
         .then(data => {
-          console.log('サーバー応答:', data);
+          // サーバー応答の処理
         })
         .catch(error => {
           console.error('サーバー接続エラー:', error);
@@ -676,14 +675,13 @@
           }
         })
         .then(response => {
-          console.log('Start conversation response status:', response.status);
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
           }
           return response.json();
         })
         .then(data => {
-          console.log('新しい会話を開始しました:', data.conversation_id);
+          // 新しい会話が開始されました
           
           // 初期メッセージを表示
           setTimeout(() => {
@@ -1049,15 +1047,12 @@
           },
         })
           .then((response) => {
-            console.log('Response status:', response.status);
-            console.log('Response headers:', response.headers);
             if (!response.ok) {
               throw new Error(`HTTP error! status: ${response.status}`);
             }
             return response.json();
           })
           .then((data) => {
-            console.log('Response data:', data);
             // ローディングメッセージを削除
             const loadingMessages = document.querySelectorAll('.message.ai .loading');
             loadingMessages.forEach(msg => msg.parentElement.parentElement.remove());
@@ -1091,12 +1086,9 @@
 
       // ページ読み込み時に新しい会話を開始
       document.addEventListener('DOMContentLoaded', function() {
-        console.log('DOMContentLoaded イベントが発火しました');
-        
         try {
           // 新しい会話を開始
           startNewConversation();
-          console.log('startNewConversation が実行されました');
           
           // 初期メッセージを表示
           setTimeout(() => {
@@ -1108,99 +1100,10 @@
             testServerConnection();
           }, 1000);
           
-          // デバッグ用：サポートセンター情報とブログ機能の確認
-          const supportElement = document.querySelector('.support-center-info');
-          const blogElement = document.getElementById('relatedBlogs');
-          const supportById = document.getElementById('supportCenter');
-          
-          console.log('サポートセンター情報要素:', supportElement);
-          console.log('関連ブログ要素:', blogElement);
-          console.log('サポートセンター情報要素（ID）:', supportById);
-          
-          // ページ全体のHTML構造を確認
-          console.log('ページのHTML構造:', document.body.innerHTML.substring(0, 500));
-          
-          if (supportElement) {
-            console.log('サポートセンター情報が表示されています');
-          } else {
-            console.log('サポートセンター情報が見つかりません');
-          }
-          
-          if (blogElement) {
-            console.log('関連ブログ要素が見つかりました');
-          } else {
-            console.log('関連ブログ要素が見つかりません');
-          }
-          
-          // テスト用：サンプルブログを表示
-          setTimeout(() => {
-            console.log('テストブログを表示します');
-            const testBlogs = [
-              {
-                title: 'テストブログ記事',
-                excerpt: 'これはテスト用のブログ記事です。',
-                tags: ['テスト'],
-                date: '2024-01-01',
-                url: '#'
-              }
-            ];
-            showRelatedBlogs(testBlogs);
-            console.log('showRelatedBlogs が実行されました');
-          }, 1000);
-          
         } catch (error) {
           console.error('エラーが発生しました:', error);
         }
       });
-      
-             // ページ読み込み前のデバッグ
-       console.log('スクリプトが読み込まれました');
-       
-       // 関数の存在確認
-       console.log('showRelatedBlogs 関数:', typeof showRelatedBlogs);
-       console.log('searchRelatedBlogs 関数:', typeof searchRelatedBlogs);
-       
-       // JavaScript有効性テスト
-       function testJavaScript() {
-         console.log('✅ JavaScriptが正常に動作しています');
-         alert('JavaScriptが有効です！');
-         return true;
-       }
-       
-               // ページ読み込み時にJavaScriptテストを実行
-        if (typeof testJavaScript === 'function') {
-          console.log('✅ JavaScript関数が定義されています');
-        } else {
-          console.log('❌ JavaScript関数が定義されていません');
-        }
-        
-        // 即座にテストを実行
-        console.log('=== JavaScript テスト開始 ===');
-        testJavaScript();
-        
-        // 要素の存在確認
-        setTimeout(() => {
-          console.log('=== 要素確認テスト ===');
-          const supportElement = document.querySelector('.support-center-info');
-          const blogElement = document.getElementById('relatedBlogs');
-          
-          console.log('サポートセンター要素:', supportElement);
-          console.log('ブログ要素:', blogElement);
-          
-          if (supportElement) {
-            console.log('✅ サポートセンター情報が表示されています');
-            supportElement.style.border = '3px solid red';
-          } else {
-            console.log('❌ サポートセンター情報が見つかりません');
-          }
-          
-          if (blogElement) {
-            console.log('✅ ブログ要素が見つかりました');
-            blogElement.style.border = '3px solid blue';
-          } else {
-            console.log('❌ ブログ要素が見つかりません');
-          }
-        }, 100);
     </script>
   </body>
 </html>

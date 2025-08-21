@@ -52,9 +52,6 @@ def load_mock_diagnostic_data():
             for node_id, node_data in category_obj.items():
                 diagnostic_nodes[node_id] = node_data
 
-        st.success("✅ **モック診断機能を起動しました**")
-        st.info("外部データファイルから診断データを読み込みました。")
-        
         return {
             "diagnostic_nodes": diagnostic_nodes,
             "start_nodes": start_nodes
@@ -118,23 +115,24 @@ def run_diagnostic_flow(diagnostic_data, current_node_id=None):
     # 診断開始
     if current_node_id is None:
         # カテゴリ選択
-        st.markdown("### 🔧 症状診断システム")
         st.markdown("どのカテゴリの問題について診断しますか？")
         
         # 利用可能なカテゴリを表示
         categories = list(start_nodes.keys())
         
-        # カテゴリを2列で表示
+        # カテゴリを均等に2列で表示
+        mid_point = (len(categories) + 1) // 2  # 奇数個の場合、左列に1つ多く配置
+        
         col1, col2 = st.columns(2)
         
         with col1:
             st.markdown("**📋 利用可能な診断カテゴリ：**")
-            for i, category in enumerate(categories[:len(categories)//2]):
+            for i, category in enumerate(categories[:mid_point]):
                 st.markdown(f"• {category}")
         
         with col2:
             st.markdown("&nbsp;")  # 空行
-            for i, category in enumerate(categories[len(categories)//2:]):
+            for i, category in enumerate(categories[mid_point:]):
                 st.markdown(f"• {category}")
         
         st.markdown("---")
@@ -521,7 +519,7 @@ def categorize_blog_urls(urls):
 
 # === ページ設定 ===
 st.set_page_config(
-    page_title="キャンピングカー修理専門AIチャット",
+    page_title="キャンピングカー修理専門\nAIチャット",
     page_icon="🔧",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -606,7 +604,6 @@ def initialize_model():
     # 環境変数から直接APIキーを取得
     api_key = os.getenv("OPENAI_API_KEY")
     
-    # デバッグ用：環境変数の確認
     if not api_key:
         st.error("⚠️ OpenAI APIキーが設定されていません。")
         st.info("Streamlit CloudのSecretsで環境変数を設定してください。")
@@ -736,7 +733,6 @@ def generate_ai_response(prompt: str):
         # モデルがNoneの場合の処理
         if model is None:
             st.error("❌ モデルの初期化に失敗しました。APIキーを確認してください。")
-            st.info("デバッグ情報を展開して、環境変数の設定状況を確認してください。")
             return
         
         # RAGで関連文書を取得
@@ -760,9 +756,6 @@ def generate_ai_response(prompt: str):
         # 回答を生成
         response = model.invoke(messages)
         response_content = response.content
-        
-        # デバッグ用：元の回答を確認
-        print("Original response:", response_content)
         
         # 回答からリンクを除去して表示
         
@@ -836,9 +829,6 @@ def generate_ai_response(prompt: str):
         contact_info = "\n\n---\n\n**💬 追加の質問**\n文章が途中で切れる場合がありますので、必要に応じてもう一度お聞きください。\n\n他に何かご質問ありましたら、引き続きチャットボットに聞いてみてください。\n\n**📞 お問い合わせ**\n直接スタッフにお尋ねをご希望の方は、[お問い合わせフォーム](https://camper-repair.net/contact/)またはお電話（086-206-6622）で受付けております。\n\n【営業時間】年中無休（9:00～21:00）\n※不在時は折り返しお電話差し上げます。\n\n**🔗 関連ブログ**\nより詳しい情報は[修理ブログ一覧](https://camper-repair.net/repair/)をご覧ください。"
         clean_response += contact_info
         
-        # デバッグ用：フィルタリング後の回答を確認
-        print("Filtered response:", clean_response)
-        
         st.markdown(clean_response)
         
         # 関連ブログを表示
@@ -888,38 +878,14 @@ def generate_ai_response(prompt: str):
         
     except Exception as e:
         st.error(f"エラーが発生しました: {str(e)}")
-        st.info("詳細なエラー情報を確認するには、デバッグ情報を展開してください。")
         
         # エラーの詳細情報を表示
-        with st.expander("詳細エラー情報", expanded=False):
-            st.code(str(e))
-            st.info("このエラー情報を開発者に共有してください。")
+        # with st.expander("詳細エラー情報", expanded=False):
+        #     st.code(str(e))
+        #     st.info("このエラー情報を開発者に共有してください。")
 
 # === メインアプリケーション ===
 def main():
-    # デバッグ情報を表示（一時的）
-    with st.expander("🔧 デバッグ情報", expanded=False):
-        st.markdown("### 環境変数確認")
-        openai_key = os.getenv("OPENAI_API_KEY")
-        serp_key = os.getenv("SERP_API_KEY")
-        
-        if openai_key:
-            st.success(f"✅ OPENAI_API_KEY: 設定済み ({openai_key[:10]}...)")
-        else:
-            st.error("❌ OPENAI_API_KEY: 未設定")
-            
-        if serp_key:
-            st.success(f"✅ SERP_API_KEY: 設定済み ({serp_key[:10]}...)")
-        else:
-            st.error("❌ SERP_API_KEY: 未設定")
-        
-        # config.pyからの取得値も確認
-        st.markdown("### config.pyからの取得値")
-        if config.OPENAI_API_KEY:
-            st.success(f"✅ config.OPENAI_API_KEY: 取得済み ({config.OPENAI_API_KEY[:10]}...)")
-        else:
-            st.error("❌ config.OPENAI_API_KEY: 未取得")
-        
     # レスポンシブなタイトル（スマホ対応）とヘッダー非表示
     st.markdown("""
     <style>
@@ -976,7 +942,7 @@ def main():
     }
     </style>
     <div class="mobile-title" style="text-align: center;">
-        <h1 style="font-size: 1.8rem; margin-bottom: 0.5rem;">🔧 キャンピングカー修理専門AIチャット</h1>
+        <h1 style="font-size: 1.8rem; margin-bottom: 0.5rem;">🔧 キャンピングカー修理専門<br>AIチャット</h1>
         <p style="font-size: 0.9rem; color: #666; margin-top: 0;">経験豊富なAIがキャンピングカーの修理について詳しくお答えします</p>
     </div>
     """, unsafe_allow_html=True)
@@ -1166,7 +1132,7 @@ def main():
         # 症状診断の説明
         st.markdown("""
         <div class="tab-description">
-            <h3>🔧 対話式症状診断</h3>
+            <h3>🔧 症状診断システム</h3>
             <p>症状を選択して、段階的に診断を行い、最適な対処法をご案内します。</p>
         </div>
         """, unsafe_allow_html=True)
@@ -1186,7 +1152,6 @@ def main():
         """, unsafe_allow_html=True)
         
         # 症状診断機能
-        st.markdown("### 🔧 症状診断システム")
         st.markdown("**下記のカテゴリから症状を選択してください：**")
         
         # 診断データを読み込み

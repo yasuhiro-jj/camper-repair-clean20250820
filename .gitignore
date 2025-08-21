@@ -56,5 +56,5 @@ Thumbs.db
 
 # Temporary files
 *.tmp
-*.temp ".env.txt" 
-".env.txt" 
+*.temp 
+.env.txt
