@@ -623,12 +623,12 @@ def main():
 
     # ヘッダー（画像のような美しいデザイン）
     st.markdown("""
-    <div style="text-align: center; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-        <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
-            <span style="font-size: 2.5em; margin-right: 15px;">  </span>
-            <h1 style="margin: 0; font-size: 2.2em; font-weight: bold;">キャンピングカー修理専門 AIチャット</h1>
+    <div style="text-align: center; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+        <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px; flex-wrap: wrap;">
+            <span style="font-size: 2em; margin-right: 10px;">🔧</span>
+            <h1 style="margin: 0; font-size: 1.8em; font-weight: bold; line-height: 1.2;">キャンピングカー修理専門 AIチャット</h1>
         </div>
-        <p style="font-size: 1.2em; margin: 0; opacity: 0.9;">経験豊富なAIがキャンピングカーの修理について詳しくお答えします</p>
+        <p style="font-size: 1em; margin: 0; opacity: 0.9; line-height: 1.3;">経験豊富なAIがキャンピングカーの修理について詳しくお答えします</p>
     </div>
     """, unsafe_allow_html=True)
 
