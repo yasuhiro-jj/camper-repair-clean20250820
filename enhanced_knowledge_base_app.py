@@ -1675,10 +1675,11 @@ def run_diagnostic_flow():
     # 接続状況を表示（非表示化）
     # st.info(f"**NotionDB接続状況**: {notion_status}")
     
-    if notion_status == "❌ 未接続":
-        st.warning("NotionDBに接続できません。環境変数の設定を確認してください。")
-        st.info("**必要な環境変数**:")
-        st.code("NOTION_API_KEY=your_notion_token\nNODE_DB_ID=your_diagnostic_db_id\nCASE_DB_ID=your_repair_case_db_id")
+    # NotionDB接続エラーメッセージを非表示化（本番環境対応）
+    # if notion_status == "❌ 未接続":
+    #     st.warning("NotionDBに接続できません。環境変数の設定を確認してください。")
+    #     st.info("**必要な環境変数**:")
+    #     st.code("NOTION_API_KEY=your_notion_token\nNODE_DB_ID=your_diagnostic_db_id\nCASE_DB_ID=your_repair_case_db_id")
     
     # 診断モードの選択
     diagnostic_mode = st.radio(
@@ -1876,7 +1877,8 @@ def run_interactive_diagnostic(diagnostic_data, repair_cases):
         for node in diagnostic_data["start_nodes"]:
             if node["title"]:
                 categories[node["title"]] = node["symptoms"]
-        st.success("✅ NotionDBから診断データを読み込みました")
+        # NotionDB接続成功メッセージを非表示化（本番環境対応）
+        # st.success("✅ NotionDBから診断データを読み込みました")
     else:
         # 詳細なデフォルトのカテゴリ（NotionDBが利用できない場合）
         categories = {
@@ -1929,11 +1931,12 @@ def run_interactive_diagnostic(diagnostic_data, repair_cases):
                 "ドアが閉まらない", "窓が開かない", "家具が壊れる", "床が抜ける", "壁が剥がれる"
             ]
         }
-        st.warning("⚠️ NotionDBが利用できないため、デフォルトの診断データを使用しています")
-        st.info("💡 NotionDB接続を改善するには:")
-        st.info("1. .streamlit/secrets.tomlの設定を確認")
-        st.info("2. Notion APIキーとデータベースIDが正しいか確認")
-        st.info("3. データベースへのアクセス権限を確認")
+        # NotionDB接続エラーメッセージを非表示化（本番環境対応）
+        # st.warning("⚠️ NotionDBが利用できないため、デフォルトの診断データを使用しています")
+        # st.info("💡 NotionDB接続を改善するには:")
+        # st.info("1. .streamlit/secrets.tomlの設定を確認")
+        # st.info("2. Notion APIキーとデータベースIDが正しいか確認")
+        # st.info("3. データベースへのアクセス権限を確認")
     
     # カテゴリ選択
     selected_category = st.selectbox("症状のカテゴリを選択してください:", list(categories.keys()))
@@ -1973,9 +1976,10 @@ def run_detailed_diagnostic(diagnostic_data, repair_cases):
     st.markdown("### 🔍 詳細診断")
     st.markdown("NotionDBの3つのデータベースのリレーションを活用した詳細な診断を行います。")
     
-    if not diagnostic_data:
-        st.warning("NotionDBの診断データが利用できません。")
-        return
+    # NotionDB接続エラーメッセージを非表示化（本番環境対応）
+    # if not diagnostic_data:
+    #     st.warning("NotionDBの診断データが利用できません。")
+    #     return
     
     # リレーション統計の表示
     st.markdown("#### 📈 データベースリレーション統計")
